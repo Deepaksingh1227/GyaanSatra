@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import "./course.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import NotesCards from "../notes/NotesCards";
+import QuizzesCards from "../quiz/QuizzesCards";
+
 
 const courses = [
   {
@@ -57,10 +60,10 @@ function CourseSection() {
         );
 
       case "study":
-        return <p className="text-center fw-semibold fs-5">📘 Study Notes section coming soon...</p>;
+        return <NotesCards/>;
 
       case "quiz":
-        return <p className="text-center fw-semibold fs-5">📝 Practice Quizzes section coming soon...</p>;
+        return <QuizzesCards/>;
 
       default:
         return null;
@@ -71,24 +74,25 @@ function CourseSection() {
     <div className="container py-5 text-center">
       {/* Stylish Tabs */}
       <div className="tab-group mb-5 d-flex justify-content-center gap-3 flex-wrap">
-        <button
-          className={`tab-modern ${activeTab === "courses" ? "active" : ""}`}
-          onClick={() => setActiveTab("courses")}
-        >
-          🎓 Courses
-        </button>
-        <button
-          className="tab-modern"
-          onClick={() => navigate("/notes")}
-        >
-          📘 Study Notes
-        </button>
-        <button
-          className={`tab-modern ${activeTab === "quiz" ? "active" : ""}`}
-          onClick={() => setActiveTab("quiz")}
-        >
-          📝 Practice Quizzes
-        </button>
+      <button
+    className={`tab-modern ${activeTab === "courses" ? "active" : ""}`}
+    onClick={() => setActiveTab("courses")}
+  >
+    🎓 Courses
+  </button>
+  <button
+    className={`tab-modern ${activeTab === "study" ? "active" : ""}`}
+    onClick={() => setActiveTab("study")}
+  >
+    📘 Study Notes
+  </button>
+  <button
+    className={`tab-modern ${activeTab === "quiz" ? "active" : ""}`}
+    onClick={() => setActiveTab("quiz")}
+  >
+    📝 Practice Quizzes
+  </button>
+
       </div>
 
       {/* Heading */}
