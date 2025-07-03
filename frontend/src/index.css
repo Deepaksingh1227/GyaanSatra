@@ -1,0 +1,9 @@
+/* index.css */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+}
+.navbar-nav .nav-link {
+  transition: color 0.3s ease;
+}

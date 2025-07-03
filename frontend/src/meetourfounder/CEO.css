@@ -1,0 +1,123 @@
+.ceo-section {
+  background: linear-gradient(to bottom, #fffdf9, #fff7ed);
+  border-radius: 20px;
+}
+
+.ceo-title {
+  font-weight: 700;
+  font-size: 2.8rem;
+  color: #ff6f00;
+}
+
+.ceo-subtitle {
+  color: #333;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.ceo-card {
+  background-color: #ffffff;
+  border-radius: 20px;
+  transition: all 0.3s ease-in-out;
+}
+
+.ceo-image {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  transition: transform 0.4s ease;
+}
+
+.ceo-image:hover {
+  transform: scale(1.04);
+}
+
+.ceo-name {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #111;
+}
+
+.ceo-role {
+  font-size: 1.2rem;
+  color: #ff6f00;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.ceo-description {
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.7;
+}
+
+.ceo-feature {
+  background-color: #fff2e0;
+  border-radius: 12px;
+  padding: 15px;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 1px solid #ffd6a6;
+}
+
+.ceo-feature:hover {
+  background-color: #ffe8cc;
+  transform: translateY(-5px);
+}
+
+.ceo-feature i {
+  font-size: 1.8rem;
+  color: #ff6f00;
+  margin-bottom: 8px;
+  transition: color 0.3s ease;
+}
+
+.ceo-feature:hover i {
+  color: #e65c00;
+}
+
+.ceo-feature h6 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #222;
+}
+
+.ceo-feature p {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.connect-btn {
+  background: linear-gradient(90deg, #ff8a00, #e52e71);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-weight: 600;
+  border: none;
+  display: inline-block;
+  transition: 0.3s;
+}
+
+.connect-btn {
+  background: linear-gradient(90deg, #ff8a00, #e52e71);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-weight: 600;
+  border: none;
+  display: inline-block;
+  transition: 0.3s;
+}
+
+.connect-btn:hover {
+  background: linear-gradient(90deg, #e52e71, #ff8a00);
+  text-decoration: none;
+  color: white;
+}
+
+
+
+.connect-btn:hover {
+  background: linear-gradient(to right, #e55d00, #ff7800);
+  transform: translateY(-2px);
+}

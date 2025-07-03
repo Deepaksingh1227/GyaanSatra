@@ -1,0 +1,247 @@
+/* General Premium Hover Effect */
+.PremiumHoverEffect {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.PremiumHoverEffect:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Explore Premium Courses Button */
+button.btn-warning {
+  background: linear-gradient(135deg, #f5b700, #fb9718);
+  border: none;
+  color: #fff;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+button.btn-warning:hover {
+  background: linear-gradient(135deg, #fb9718, #f5b700);
+  transform: scale(1.05);
+}
+
+/* Outline Button for Founder */
+button.btn-outline-warning {
+  border: 2px solid #f5b700;
+  color: #f5b700;
+  transition: all 0.3s ease;
+}
+button.btn-outline-warning:hover {
+  background-color: #f5b700;
+  color: white;
+  transform: scale(1.05);
+}
+
+/* Card Styles */
+.card-hover {
+  border-width: 2px !important;
+  border-radius: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+.card-hover:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Optional: Gradient Text */
+.text-gradient {
+  background: linear-gradient(135deg, #fb9718, #f5b700);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+/* Gradient Text with Fade + Pop Hover Effect */
+.text-gradient {
+  background: linear-gradient(135deg, #ff8c00, #ffa500, #ffd700);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: fadeInUp 0.6s ease forwards;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  cursor: pointer;
+}
+
+/* Gradient Text with Fade + Pop Hover Effect */
+.text-gradient {
+  background: linear-gradient(135deg, #ff8c00, #ffa500, #ffd700);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: fadeInUp 0.6s ease forwards;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  cursor: pointer;
+}
+
+/* Gradient Text Effect */
+.Headings {
+  background: linear-gradient(135deg, #ff8c00, #ffa500, #ffd700);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: fadeInInitial 1s ease forwards;
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+
+/* On Hover: Triggers fade out + in in loop */
+.fancy-fade-heading:hover {
+  animation: fadeOutIn 2s ease-in-out;
+  animation-delay: 0.2s;
+}
+
+/* Initial Fade-In on Load */
+@keyframes fadeInInitial {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px) scale(1);
+  }
+}
+
+/* Hover Animation: Fade Out, Then Back In */
+@keyframes fadeOutIn {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+/* Updated Logo Style */
+.homepage-logo {
+  height: 110px;
+  width: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Attractive Hover Effect */
+.homepage-logo:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 32px rgba(255, 165, 0, 0.4); /* subtle orange glow */
+}
+/* Homepage Background – Fresh Mint & Sky Gradient */
+.homepage-wrapper {
+  background: linear-gradient(135deg, #e0f7fa, #f1f8e9); /* minty blue & green */
+  box-shadow: inset 0 0 80px rgba(0, 123, 255, 0.05);
+  border-radius: 20px;
+  margin: 20px;
+  padding: 60px 20px;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* Glowing light effect blobs */
+.homepage-wrapper::before {
+  content: "";
+  position: absolute;
+  top: -80px;
+  left: -80px;
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(circle, rgba(0, 255, 255, 0.2), transparent);
+  border-radius: 50%;
+  z-index: 0;
+}
+.homepage-wrapper::after {
+  content: "";
+  position: absolute;
+  bottom: -100px;
+  right: -100px;
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(0, 200, 83, 0.15), transparent);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+/* Content above bg */
+.homepage-wrapper > .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Logo Style – crisp & modern */
+.homepage-logo {
+  height: 120px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.homepage-logo:hover {
+  transform: scale(1.06);
+  box-shadow: 0 16px 40px rgba(0, 200, 255, 0.3);
+}
+
+/* Main Heading – vibrant cyan-blue gradient */
+.fancy-fade-heading {
+  background: linear-gradient(90deg, #00bcd4, #4dd0e1, #009688);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: fadeInInitial 1s ease forwards;
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+.fancy-fade-heading:hover {
+  animation: fadeOutIn 2s ease-in-out;
+  animation-delay: 0.2s;
+}
+
+/* Animations */
+@keyframes fadeInInitial {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px) scale(1);
+  }
+}
+@keyframes fadeOutIn {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Card Styling – glassy effect */
+.card-hover {
+  background: rgba(255, 255, 255, 0.8);
+  -webkit-backdrop-filter: blur(6px); /* Safari */
+  backdrop-filter: blur(6px); /* All modern browsers */
+  
+}
+.card-hover:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Button Hover Effects */
+.hover-grow:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+.hover-border-grow:hover {
+  border-width: 2.5px;
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+}

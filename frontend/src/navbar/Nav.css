@@ -1,0 +1,35 @@
+
+.navbar-nav .nav-link {
+  transition: color 0.3s ease;
+  color: #333 !important;
+}
+
+
+.navbar-nav .nav-link:hover {
+  color: #fb9718 !important; /* orange hover */
+}
+.navbar-nav .nav-link.active {
+  color: #15d1e9 !important; /* cyan active color */
+  font-weight: bold;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-item {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+.group:hover .nav-link {
+  color: #007bff;
+  transform: scale(1.05);
+}
