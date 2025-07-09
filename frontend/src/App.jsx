@@ -2,13 +2,27 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Element } from 'react-scroll';
 
+
+
 import AppNavbar from './navbar/AppNavbar';
 import Homemain from './home/Homemain';
 import AboutMain from './about/AboutMain';
 import CourseSection from './premiumcourses/CourseSection';
 import MeetOurCEO from './meetourfounder/MeetOurCEO';
+import NotesPage from './pages/NotesPage';
 import Team from './team/Team';
 import Contact from './contact/Contact';
+import Login from "./auth/Login";
+import Signup from "./auth/Signup";
+import QuizPage from './quiz/QuizPage';
+import QuizSelector from "./quiz/QuizSelector";
+
+
+
+
+
+
+
 
 
 
@@ -31,12 +45,22 @@ function App() {
   return (
     <>
       <AppNavbar />
-      <Routes>
-        <Route path="/" element={<ScrollLayout />} />
-        <Route path="/meetourceo" element={<MeetOurCEO />} />
-        <Route path="/contact" element={<Contact />} />
-        
-      </Routes>
+       
+        <Routes>
+          <Route path="/" element={<ScrollLayout />} />
+          <Route path="/meetourceo" element={<MeetOurCEO />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/notes" element={<NotesPage />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/quiz" element={<QuizPage />} />
+          <Route path="/quiz" element={<QuizSelector />} />
+          <Route path="/premiumcourses" element={<CourseSection />} />
+          <Route path="/meetourfounder" element={<MeetOurCEO />} />
+          
+          
+        </Routes>
+      
     </>
   );
 }

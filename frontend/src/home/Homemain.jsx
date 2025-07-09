@@ -4,15 +4,10 @@ import logo from '../assets/gyaansatralogo.jpg';
 import { Container, Row, Col, Button, Card } from 'react-bootstrap';
 import { FaStar, FaArrowRight, FaCode, FaFlask, FaLaptopCode } from 'react-icons/fa';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import MeetOurCEO from '../meetourfounder/MeetOurCEO';
-import { useNavigate } from 'react-router-dom'; // ✅ Import navigate hook
+import { useNavigate } from 'react-router-dom';
 
 function Homemain() {
-  const navigate = useNavigate(); // ✅ Setup navigation
-
-  const handleFounderClick = () => {
-    navigate('/MeetOurCeo'); // ✅ Route to new page
-  };
+  const navigate = useNavigate(); 
 
   return (
     <div>
@@ -46,13 +41,17 @@ function Homemain() {
 
           {/* Buttons */}
           <div className="d-flex justify-content-center gap-3 flex-wrap mb-5">
-            <Button variant="warning" className="px-4 fw-bold shadow hover-grow">
+            <Button
+              variant="warning"
+              className="px-4 fw-bold shadow hover-grow"
+              onClick={() => navigate('/premiumcourses')}
+            >
               Explore Premium Courses <FaArrowRight className="ms-2" />
             </Button>
             <Button
               variant="outline-warning"
               className="px-4 fw-bold shadow hover-border-grow"
-              onClick={handleFounderClick} // ✅ Navigate on click
+              onClick={() => navigate('/MeetOurCEO')}
             >
               Meet Our Founder
             </Button>
@@ -64,9 +63,7 @@ function Homemain() {
               <Card className="card-hover border-warning shadow-sm">
                 <Card.Body className="text-center">
                   <FaFlask size={40} className="text-warning mb-3" />
-                  <Card.Title className="fw-bold text-dark">
-                    Forensic Science
-                  </Card.Title>
+                  <Card.Title className="fw-bold text-dark">Forensic Science</Card.Title>
                   <Card.Text className="text-secondary">
                     Advanced forensic investigation and scientific research techniques.
                   </Card.Text>
@@ -78,9 +75,7 @@ function Homemain() {
               <Card className="card-hover border-danger shadow-sm">
                 <Card.Body className="text-center">
                   <FaCode size={40} className="text-danger mb-3" />
-                  <Card.Title className="fw-bold text-dark">
-                    DSA & Programming
-                  </Card.Title>
+                  <Card.Title className="fw-bold text-dark">DSA & Programming</Card.Title>
                   <Card.Text className="text-secondary">
                     Learn Data Structures and Algorithms with practical problem-solving.
                   </Card.Text>
@@ -92,9 +87,7 @@ function Homemain() {
               <Card className="card-hover border-info shadow-sm">
                 <Card.Body className="text-center">
                   <FaLaptopCode size={40} className="text-info mb-3" />
-                  <Card.Title className="fw-bold text-dark">
-                    Web Development
-                  </Card.Title>
+                  <Card.Title className="fw-bold text-dark">Web Development</Card.Title>
                   <Card.Text className="text-secondary">
                     Full-stack web development from design to deployment.
                   </Card.Text>
