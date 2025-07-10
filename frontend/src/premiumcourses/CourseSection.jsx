@@ -3,6 +3,12 @@ import "./course.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useNavigate } from "react-router-dom";
 
+// ✅ IMPORT all special pages
+import ForensicCourses from "../ForensicCourses";
+import DSACourses from "../DSACourses";
+import FrontendCourses from "../FrontendCourses";
+import BackendCourses from "../BackendCourses";
+
 const courses = [
   {
     title: "Forensic Science",
@@ -32,7 +38,28 @@ const courses = [
 
 function CourseSection() {
   const navigate = useNavigate();
-  const [activeTab, setActiveTab] = useState("courses");
+
+  // ✅ ONE state for which special section to show
+  const [activeSpecial, setActiveSpecial] = useState("");
+
+  const handleEnrollClick = (course) => {
+    switch (course.title) {
+      case "Forensic Science":
+        setActiveSpecial("forensic");
+        break;
+      case "Data Structures & Algorithms":
+        setActiveSpecial("dsa");
+        break;
+      case "Frontend Development":
+        setActiveSpecial("frontend");
+        break;
+      case "Backend Development":
+        setActiveSpecial("backend");
+        break;
+      default:
+        alert(`Enroll Now clicked for ${course.title}`);
+    }
+  };
 
   const renderCourses = () => (
     <div className="row g-4">
@@ -47,7 +74,10 @@ function CourseSection() {
                 <li key={i}>{point}</li>
               ))}
             </ul>
-            <button className="btn btn-warning fw-semibold mt-3 enroll-btn">
+            <button
+              className="btn btn-warning fw-semibold mt-3 enroll-btn"
+              onClick={() => handleEnrollClick(course)}
+            >
               Enroll Now
             </button>
           </div>
@@ -58,36 +88,42 @@ function CourseSection() {
 
   return (
     <div className="container py-5 text-center">
-      {/* Tabs */}
-      <div className="tab-group mb-5 d-flex justify-content-center gap-3 flex-wrap">
-        <button
-          className={`tab-modern ${activeTab === "courses" ? "active" : ""}`}
-          onClick={() => setActiveTab("courses")}
-        >
-          🎓 Courses
-        </button>
-        <button
-          className="tab-modern"
-          onClick={() => navigate("/notes")}
-        >
-          📘 Study Notes
-        </button>
-        <button
-          className="tab-modern"
-          onClick={() => navigate("/quiz")}
-        >
-          📝 Practice Quizzes
-        </button>
-      </div>
+      {activeSpecial === "forensic" && (
+        <ForensicCourses onBack={() => setActiveSpecial("")} />
+      )}
+      {activeSpecial === "dsa" && (
+        <DSACourses onBack={() => setActiveSpecial("")} />
+      )}
+      {activeSpecial === "frontend" && (
+        <FrontendCourses onBack={() => setActiveSpecial("")} />
+      )}
+      {activeSpecial === "backend" && (
+        <BackendCourses onBack={() => setActiveSpecial("")} />
+      )}
 
-      {/* Heading */}
-      <h2 className="text-danger fw-bold mb-2">Our Premium Courses</h2>
-      <p className="text-muted mb-5">
-        Comprehensive learning paths designed to transform your career in technology and forensic science
-      </p>
+      {!activeSpecial && (
+        <>
+          {/* Tabs */}
+          <div className="tab-group mb-5 d-flex justify-content-center gap-3 flex-wrap">
+            <button className="tab-modern active">🎓 Courses</button>
+            <button className="tab-modern" onClick={() => navigate("/notes")}>
+              📘 Study Notes
+            </button>
+            <button className="tab-modern" onClick={() => navigate("/quiz")}>
+              📝 Practice Quizzes
+            </button>
+          </div>
 
-      {/* Course Cards */}
-      {activeTab === "courses" && renderCourses()}
+          {/* Heading */}
+          <h2 className="text-danger fw-bold mb-2">Our Premium Courses</h2>
+          <p className="text-muted mb-5">
+            Comprehensive learning paths designed to transform your career in technology and forensic science.
+          </p>
+
+          {/* Main course cards */}
+          {renderCourses()}
+        </>
+      )}
     </div>
   );
 }
