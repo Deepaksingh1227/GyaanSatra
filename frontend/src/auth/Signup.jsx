@@ -1,6 +1,5 @@
-// src/auth/Signup.jsx
 import React, { useState } from "react";
-import axios from "axios";
+import axios from "../api/axios"; // ✅ custom axios instance
 import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
@@ -21,7 +20,7 @@ const Signup = () => {
     e.preventDefault();
     setError("");
     try {
-      const res = await axios.post("/api/auth/signup", formData);
+      const res = await axios.post("/api/auth/signup", formData); // ✅ uses correct baseURL
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("user", JSON.stringify(res.data.user));
       navigate("/notes");
@@ -86,7 +85,10 @@ const Signup = () => {
         </button>
       </form>
       <p className="mt-3 text-center">
-        Already have an account? <a href="/login">Login</a>
+        Already have an account?{" "}
+        <a href="/login" className="text-decoration-none">
+          Login
+        </a>
       </p>
     </div>
   );

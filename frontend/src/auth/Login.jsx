@@ -1,6 +1,5 @@
-// src/auth/LoginPage.jsx
 import React, { useState } from "react";
-import axios from "axios";
+import axios from "../api/axios"; // ✅ Use custom axios instance
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
@@ -10,17 +9,19 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("/api/auth/login", form);
+      const res = await axios.post("/api/auth/login", form); // ✅ relative path
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("user", JSON.stringify(res.data.user));
 
+      // Navigate based on user role
       if (res.data.user.role === "admin") {
         navigate("/admin/upload");
       } else {
         navigate("/notes");
       }
     } catch (err) {
-      alert("Login failed: " + err.response?.data?.message || err.message);
+      const msg = err.response?.data?.msg || "Login failed";
+      alert("Login failed: " + msg);
     }
   };
 
@@ -49,7 +50,11 @@ const Login = () => {
         </button>
         <p className="mt-3 text-center">
           Don’t have an account?{" "}
-          <button className="btn btn-link p-0" onClick={() => navigate("/signup")}>
+          <button
+            className="btn btn-link p-0"
+            type="button"
+            onClick={() => navigate("/signup")}
+          >
             Signup
           </button>
         </p>
