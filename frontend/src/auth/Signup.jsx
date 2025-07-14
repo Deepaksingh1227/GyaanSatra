@@ -1,96 +1,95 @@
-// src/pages/SignupPage.jsx
+// src/auth/Signup.jsx
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-function SignupPage() {
+const Signup = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
+    phone: "",
     email: "",
     password: "",
-    role: "user",
   });
   const [error, setError] = useState("");
-  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-            await axios.post(
-            "http://localhost:5000/api/auth/signup",
-            formData,
-            {
-                headers: {
-                "Content-Type": "application/json",  // ✅ REQUIRED
-                },
-            }
-            );
-            navigate("/login");
-        } catch (err) {
-            setError(err.response?.data?.message || "Signup failed");
-        }
-    };
-
+    e.preventDefault();
+    setError("");
+    try {
+      const res = await axios.post("/api/auth/signup", formData);
+      localStorage.setItem("token", res.data.token);
+      localStorage.setItem("user", JSON.stringify(res.data.user));
+      navigate("/notes");
+    } catch (err) {
+      setError(err.response?.data?.msg || "Signup failed");
+    }
+  };
 
   return (
-    <div className="container mt-5 pt-5" style={{ maxWidth: "500px" }}>
-      <h2 className="text-center mb-4">Sign Up</h2>
-
+    <div className="container mt-5" style={{ maxWidth: "500px" }}>
+      <h3 className="mb-4 text-center text-primary pt-5">Sign Up</h3>
       {error && <div className="alert alert-danger">{error}</div>}
-
       <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="name"
-          placeholder="Full Name"
-          className="form-control mb-3"
-          value={formData.name}
-          onChange={handleChange}
-          required
-        />
-
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          className="form-control mb-3"
-          value={formData.email}
-          onChange={handleChange}
-          required
-        />
-
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          className="form-control mb-3"
-          value={formData.password}
-          onChange={handleChange}
-          required
-        />
-
-        {/* Don't allow selecting admin role */}
-        <select
-        name="role"
-        className="form-control mb-4"
-        value={formData.role}
-        onChange={handleChange}
-        disabled // make fixed
-        >
-        <option value="user">User</option>
-        </select>
-
-
-        <button type="submit" className="btn btn-primary w-100">
+        <div className="mb-3">
+          <label>Full Name</label>
+          <input
+            type="text"
+            name="name"
+            className="form-control"
+            required
+            value={formData.name}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="mb-3">
+          <label>Phone Number</label>
+          <input
+            type="tel"
+            name="phone"
+            className="form-control"
+            required
+            pattern="[0-9]{10}"
+            value={formData.phone}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="mb-3">
+          <label>Email address</label>
+          <input
+            type="email"
+            name="email"
+            className="form-control"
+            required
+            value={formData.email}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="mb-3">
+          <label>Password</label>
+          <input
+            type="password"
+            name="password"
+            className="form-control"
+            required
+            minLength="6"
+            value={formData.password}
+            onChange={handleChange}
+          />
+        </div>
+        <button className="btn btn-primary w-100" type="submit">
           Sign Up
         </button>
       </form>
+      <p className="mt-3 text-center">
+        Already have an account? <a href="/login">Login</a>
+      </p>
     </div>
   );
-}
+};
 
-export default SignupPage;
+export default Signup;

@@ -1,29 +1,22 @@
-const Note = require('../models/Note');
+const Note = require("../models/Note");
+const cloudinary = require("../config/cloudinary");
+const fs = require("fs");
 
-const uploadNote = async (req, res) => {
-  try {
-    const { title, session } = req.body;
+exports.uploadNote = async (req, res) => {
+  const result = await cloudinary.uploader.upload(req.file.path, {
+    folder: "gyaansatra_notes"
+  });
+  fs.unlinkSync(req.file.path); // delete local
 
-    if (!req.file) {
-      return res.status(400).json({ message: "No file uploaded" });
-    }
-
-    const fileUrl = `${req.protocol}://${req.get("host")}/uploads/${req.file.filename}`;
-
-    const newNote = new Note({
-      title,
-      session,
-      fileUrl,
-      uploadedBy: req.user.email,
-    });
-
-    await newNote.save();
-
-    res.status(201).json({ message: "Note uploaded successfully", note: newNote });
-  } catch (error) {
-    console.error("Upload error:", error);
-    res.status(500).json({ message: "Failed to upload note" });
-  }
+  const note = await Note.create({
+    title: req.body.title,
+    url: result.secure_url,
+    session: req.body.session
+  });
+  res.json(note);
 };
 
-module.exports = { uploadNote };
+exports.getNotesBySession = async (req, res) => {
+  const notes = await Note.find({ session: req.params.session });
+  res.json(notes);
+};

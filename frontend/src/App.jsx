@@ -13,13 +13,15 @@ import DSACourses from './DSACourses';
 import FrontendCourses from './FrontendCourses';
 import BackendCourses from './BackendCourses';
 import MeetOurCEO from './meetourfounder/MeetOurCEO';
-import NotesPage from './pages/NotesPage';
+import NotesList from './notes/NotesList';
 import Team from './team/Team';
 import Contact from './contact/Contact';
 import Login from "./auth/Login";
 import Signup from "./auth/Signup";
 import QuizPage from './quiz/QuizPage';
 import QuizSelector from "./quiz/QuizSelector";
+import SessionSelector from './notes/SessionSelector';
+import UploadForm from './notes/UploadForm';
 
 
 
@@ -54,13 +56,16 @@ function App() {
           <Route path="/" element={<ScrollLayout />} />
           <Route path="/meetourceo" element={<MeetOurCEO />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/notes" element={<NotesPage />} />
+          <Route path="/notes" element={<SessionSelector />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/quiz" element={<QuizPage />} />
           <Route path="/quiz" element={<QuizSelector />} />
           <Route path="/premiumcourses" element={<CourseSection />} />
           <Route path="/meetourfounder" element={<MeetOurCEO />} />
+          <Route path="/admin/upload" element={<UploadForm />} />
+          <Route path="/session/:session" element={<NotesList />} />
+
           
           
         </Routes>

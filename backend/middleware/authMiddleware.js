@@ -1,20 +1,14 @@
 const jwt = require("jsonwebtoken");
-const JWT_SECRET = process.env.JWT_SECRET || "secret123";
 
-exports.protect = (req, res, next) => {
-  const token = req.headers.authorization?.split(" ")[1];
-  if (!token) return res.status(401).json({ error: "Unauthorized" });
+exports.auth = (req, res, next) => {
+  const token = req.headers.authorization;
+  if (!token) return res.sendStatus(401);
 
   try {
-    const decoded = jwt.verify(token, JWT_SECRET);
+    const decoded = jwt.verify(token.split(" ")[1], process.env.JWT_SECRET);
     req.user = decoded;
     next();
   } catch {
-    res.status(401).json({ error: "Invalid token" });
+    return res.sendStatus(401);
   }
-};
-
-exports.adminOnly = (req, res, next) => {
-  if (req.user.role !== "admin") return res.status(403).json({ error: "Admin access only" });
-  next();
 };
