@@ -1,16 +1,14 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import abcd from "./images/abcd.png";
-import new1 from "./images/new1.png";
-import new2 from "./images/new2.png";
-import new3 from "./images/new3.png";
+import abcd  from "./images/abcd.jpg";
+
 const forensicCourses = [
   {
     title: "Basics of Cyber Security",
     description:
       "Protect yourself and your digital world! Join our Basics of Cybersecurity course designed to build a strong foundation in online safety and security.",
     price: 499,
-    image: abcd,
+    image:abcd
   }
   // ,
   // {
