@@ -1,6 +1,6 @@
 // src/payments/PayButton.jsx
 import React from "react";
-import axios from "axios";
+import axios from "../api/axios"; // ✅ custom axios instance
 
 const PayButton = ({ category }) => {
   const token = localStorage.getItem("token");
