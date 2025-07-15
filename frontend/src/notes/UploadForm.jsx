@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
-import axios from "../api/axios"; // ✅ custom axios instance
+// src/notes/UploadForm.jsx
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 const UploadForm = () => {
   const user = JSON.parse(localStorage.getItem("user"));
@@ -14,19 +15,19 @@ const UploadForm = () => {
 
   const fetchAllNotes = async () => {
     try {
-      const res = await axios.get("/api/notes/all", {
-        headers: { Authorization: `Bearer ${token}` }
+      const res = await axios.get("https://gyaansatra-backend.onrender.com/api/notes/all", {
+        headers: { Authorization: `Bearer ${token}` },
       });
 
+      // Group notes by session
       const grouped = res.data.reduce((acc, note) => {
-        if (!acc[note.session]) acc[note.session] = [];
+        acc[note.session] = acc[note.session] || [];
         acc[note.session].push(note);
         return acc;
       }, {});
-
       setNotesBySession(grouped);
     } catch (err) {
-      console.error("Failed to fetch notes");
+      console.error("Failed to fetch notes:", err);
     }
   };
 
@@ -36,49 +37,48 @@ const UploadForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!file) return alert("Please select a file.");
+
     const data = new FormData();
     data.append("title", form.title);
     data.append("session", form.session);
     data.append("file", file);
 
-    await axios.post("/api/notes/upload", data, {
-      headers: { Authorization: `Bearer ${token}` }
-    });
-
-    alert("Note uploaded!");
-    setForm({ title: "", session: "forensics" });
-    setFile(null);
-    fetchAllNotes();
+    try {
+      await axios.post("https://gyaansatra-backend.onrender.com/api/notes/upload", data, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      alert("Note uploaded!");
+      setForm({ title: "", session: "forensics" });
+      setFile(null);
+      fetchAllNotes();
+    } catch (err) {
+      alert("Failed to upload note.");
+    }
   };
 
-  const handleDelete = async (noteId) => {
-    const confirm = window.confirm("Are you sure you want to delete this note?");
-    if (!confirm) return;
+  const handleDelete = async (id) => {
+    if (!window.confirm("Are you sure you want to delete this note?")) return;
 
     try {
-      await axios.delete(`/api/notes/${noteId}`, {
-        headers: { Authorization: `Bearer ${token}` }
+      await axios.delete(`https://gyaansatra-backend.onrender.com/api/notes/${id}`, {
+        headers: { Authorization: `Bearer ${token}` },
       });
-
-      alert("Note deleted.");
       fetchAllNotes();
-    } catch {
-      alert("Failed to delete note");
+    } catch (err) {
+      alert("Failed to delete note.");
     }
   };
 
   return (
     <div className="container mt-5 col-md-8">
       <h4 className="mb-3 pt-5">Upload Notes (Admin Only)</h4>
-
-      {/* Upload Form */}
       <form onSubmit={handleSubmit}>
         <input
           className="form-control mb-2"
           placeholder="Title"
           value={form.title}
           onChange={(e) => setForm({ ...form, title: e.target.value })}
-          required
         />
         <select
           className="form-select mb-2"
@@ -94,14 +94,16 @@ const UploadForm = () => {
           type="file"
           className="form-control mb-2"
           onChange={(e) => setFile(e.target.files[0])}
-          required
         />
-        <button className="btn btn-success">Upload</button>
+        <button className="btn btn-success mb-4" type="submit">
+          Upload
+        </button>
       </form>
 
-      {/* Notes Management Section */}
-      <hr className="my-4" />
-      <h5>Manage Uploaded Notes</h5>
+      <hr />
+      <h5 className="mb-3">Manage Uploaded Notes</h5>
+
+      {Object.keys(notesBySession).length === 0 && <p>No notes uploaded yet.</p>}
 
       {Object.keys(notesBySession).map((session) => (
         <div key={session} className="mb-4">
@@ -140,12 +142,12 @@ const UploadForm = () => {
         </div>
       ))}
 
-      {/* Preview Modal */}
+      {/* PDF Preview Modal */}
       {previewUrl && (
         <div
           className="modal d-block"
           tabIndex="-1"
-          style={{ background: "rgba(0,0,0,0.7)" }}
+          style={{ backgroundColor: "rgba(0,0,0,0.7)" }}
           onClick={() => setPreviewUrl("")}
         >
           <div
@@ -154,14 +156,16 @@ const UploadForm = () => {
           >
             <div className="modal-content">
               <div className="modal-header">
-                <h5 className="modal-title">PDF Preview</h5>
+                <h5 className="modal-title">Preview Note</h5>
                 <button className="btn-close" onClick={() => setPreviewUrl("")}></button>
               </div>
-              <div className="modal-body" style={{ height: "80vh" }}>
+              <div className="modal-body">
                 <iframe
                   src={previewUrl}
-                  title="PDF Preview"
-                  style={{ width: "100%", height: "100%" }}
+                  title="Preview"
+                  width="100%"
+                  height="600px"
+                  frameBorder="0"
                 ></iframe>
               </div>
             </div>
