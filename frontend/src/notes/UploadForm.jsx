@@ -1,6 +1,6 @@
 // src/notes/UploadForm.jsx
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import axios from "../api/axios"; // ✅ custom axios instance
 
 const UploadForm = () => {
   const user = JSON.parse(localStorage.getItem("user"));
