@@ -71,8 +71,7 @@ const NotesList = () => {
                 <h5 className="mb-3">{note.title}</h5>
                 <a
                   href={note.url}
-                  target="_blank"
-                  rel="noreferrer"
+                  download={note.title}
                   className="btn btn-sm btn-primary"
                 >
                   📄 Download
