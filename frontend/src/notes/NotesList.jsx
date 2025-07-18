@@ -66,19 +66,20 @@ const NotesList = () => {
       {allowed && notes.length > 0 && (
         <div className="row">
           {notes.map((note, i) => (
-            <div className="col-md-6 mb-3" key={i}>
-              <div className="card p-3 shadow">
-                <h5>{note.title}</h5>
+            <div className="col-md-6 mb-4" key={i}>
+              <div className="card p-3 shadow h-100">
+                <h5 className="mb-3">{note.title}</h5>
                 <a
                   href={note.url}
                   target="_blank"
                   rel="noreferrer"
-                  className="btn btn-sm btn-primary mt-2"
+                  className="btn btn-sm btn-primary"
                 >
-                  Download
+                  📄 Download
                 </a>
               </div>
             </div>
+
           ))}
         </div>
       )}
