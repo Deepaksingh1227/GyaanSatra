@@ -59,7 +59,7 @@ const PayButton = ({ category }) => {
 
   return (
     <button className="btn btn-warning" onClick={handlePayment}>
-      Pay ₹999 to Unlock
+      Pay ₹1 to Unlock
     </button>
   );
 };
