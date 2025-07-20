@@ -1,34 +1,16 @@
+// src/pages/ForensicCourses.jsx
 import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import abcd  from "./images/abcd.jpg";
+import abcd from "./images/abcd.jpg";
+import PayButton from "./payment/PayButton"; // ✅ import reusable button
 
 const forensicCourses = [
   {
     title: "Basics of Cyber Security",
-    description:
-      "Protect yourself and your digital world! Join our Basics of Cybersecurity course designed to build a strong foundation in online safety and security.",
-    price: 499,
-    image:abcd
-  }
-  // ,
-  // {
-  //   title: "Crime Scene Investigation",
-  //   description: "Learn how to secure, document, and analyze crime scenes.",
-  //   price: 4999,
-  //   image: new1,
-  // },
-  // {
-  //   title: "Forensic Toxicology",
-  //   description: "Study the detection and effects of toxins and drugs.",
-  //   price: 3999,
-  //   image: new2,
-  // },
-  // {
-  //   title: "Digital Forensics",
-  //   description: "Master recovering and investigating material on digital devices.",
-  //   price: 5999,
-  //   image: new3,
-  // },
+    description: "Protect yourself and your digital world!",
+    price: 999,
+    image: abcd,
+    category: "forensics", // 🧠 category for access
+  },
 ];
 
 function ForensicCourses({ onBack }) {
@@ -50,7 +32,9 @@ function ForensicCourses({ onBack }) {
               <h6 className="text-primary fw-bold mb-3">
                 ₹ {course.price.toLocaleString()}
               </h6>
-              <button className="btn btn-success fw-semibold">Buy Now</button>
+
+              {/* ✅ Use central PayButton */}
+              <PayButton category={course.category} />
             </div>
           </div>
         ))}

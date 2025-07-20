@@ -69,12 +69,25 @@ const NotesList = () => {
             <div className="col-md-6 mb-4" key={i}>
               <div className="card p-3 shadow h-100">
                 <h5 className="mb-3">{note.title}</h5>
+                {/* 👇 Debug: Print the actual PDF URL */}
+                <p className="text-muted small">
+                  <strong>URL:</strong> {note.url}
+                </p>
                 <a
                   href={note.url}
                   download={note.title}
                   className="btn btn-sm btn-primary"
                 >
                   📄 Download
+                </a>
+                 {/* Optional: Preview button */}
+                <a
+                  href={note.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn btn-sm btn-outline-secondary ms-2"
+                >
+                  👁️ Preview
                 </a>
               </div>
             </div>

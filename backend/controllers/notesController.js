@@ -5,7 +5,8 @@ const fs = require("fs");
 exports.uploadNote = async (req, res) => {
   const result = await cloudinary.uploader.upload(req.file.path, {
     folder: "gyaansatra_notes",
-    resource_type: "auto"
+    resource_type: "raw",
+    type: "upload",
   });
   fs.unlinkSync(req.file.path); // delete local
 

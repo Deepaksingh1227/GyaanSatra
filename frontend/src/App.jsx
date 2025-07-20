@@ -22,6 +22,8 @@ import QuizPage from './quiz/QuizPage';
 import QuizSelector from "./quiz/QuizSelector";
 import SessionSelector from './notes/SessionSelector';
 import UploadForm from './notes/UploadForm';
+import CommunityPartners from "./communitypartners/CommunityPartners";
+
 
 
 
@@ -65,6 +67,7 @@ function App() {
           <Route path="/meetourfounder" element={<MeetOurCEO />} />
           <Route path="/admin/upload" element={<UploadForm />} />
           <Route path="/session/:session" element={<NotesList />} />
+          <Route path="/communitypartners" element={<CommunityPartners />} />
 
           
           

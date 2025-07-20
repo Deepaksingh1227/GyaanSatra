@@ -22,7 +22,7 @@ function Homemain() {
           <div className="d-flex justify-content-center align-items-center mb-3">
             <FaStar className="text-warning me-2" size={24} />
             <span className="text-secondary fw-semibold fs-5">
-              Premium Knowledge Platform
+              On The Path Of Truth
             </span>
             <FaStar className="text-warning ms-2" size={24} />
           </div>
@@ -34,7 +34,7 @@ function Homemain() {
 
           {/* Sub Heading */}
           <p className="lead text-secondary mb-4">
-            On The Path Of Truth - Empowering minds through structured learning in
+            Empowering minds through structured learning in
             <strong> Forensic Science</strong>, <strong>DSA</strong>, and{' '}
             <strong>Web Development</strong>.
           </p>
@@ -54,6 +54,15 @@ function Homemain() {
               onClick={() => navigate('/MeetOurCEO')}
             >
               Meet Our Founder
+            </Button>
+
+             {/* ✅ NEW Community Partners Button */}
+            <Button
+              variant="outline-info"
+              className="px-4 fw-bold shadow hover-border-grow"
+              onClick={() => navigate('/communitypartners')}
+            >
+              Meet Our Community Partners
             </Button>
           </div>
 

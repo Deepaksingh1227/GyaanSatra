@@ -2,7 +2,7 @@
 import React from "react";
 import axios from "../api/axios"; // ✅ custom axios instance
 
-const PayButton = ({ category }) => {
+const PayButton = ({ category="forensics" }) => {
   const token = localStorage.getItem("token");
 
   const handlePayment = async () => {
@@ -59,7 +59,7 @@ const PayButton = ({ category }) => {
 
   return (
     <button className="btn btn-warning" onClick={handlePayment}>
-      Pay ₹1 to Unlock
+      Pay ₹999 to Unlock
     </button>
   );
 };

@@ -73,7 +73,7 @@ const UploadForm = () => {
           <option value="backend">Backend Development</option>
         </select>
         <input
-          type="file"
+          type="upload"
           className="form-control mb-2"
           onChange={(e) => setFile(e.target.files[0])}
         />
