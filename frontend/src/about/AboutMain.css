@@ -195,3 +195,120 @@
     align-items: center;
   }
 }
+/* Background glow circles */
+.glow-circle {
+  position: absolute;
+  border-radius: 50%;
+  z-index: 0;
+  filter: blur(120px);
+  opacity: 0.4;
+  pointer-events: none;
+  animation: pulse-glow 8s ease-in-out infinite alternate;
+}
+
+.glow-1 {
+  width: 300px;
+  height: 300px;
+  top: -80px;
+  left: -80px;
+  background: #ffd54f;
+}
+
+.glow-2 {
+  width: 250px;
+  height: 250px;
+  bottom: -60px;
+  right: -60px;
+  background: #64b5f6;
+}
+
+@keyframes pulse-glow {
+  from { transform: scale(1); opacity: 0.4; }
+  to { transform: scale(1.15); opacity: 0.6; }
+}
+@media (max-width: 576px) {
+  .about-title {
+    font-size: 2rem;
+  }
+  .about-subtitle {
+    font-size: 0.95rem;
+  }
+  .mission-section {
+    padding: 40px 20px;
+  }
+  .stat-box {
+    min-width: 180px;
+    padding: 20px;
+  }
+}
+/* Horizontal scroll animation */
+.scroll-wrapper {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  margin-top: 60px;
+}
+
+.scroll-track {
+  display: flex;
+  gap: 30px;
+  width: max-content;
+  animation: scrollLoop 30s linear infinite;
+}
+
+.scroll-card {
+  flex: 0 0 auto;
+  background: linear-gradient(145deg, #ffffff, #f0f0f5);
+  border-radius: 20px;
+  padding: 25px;
+  min-width: 260px;
+  max-width: 260px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.scroll-card:hover {
+  transform: scale(1.05);
+  background: linear-gradient(145deg, #ffffff, #e3f2fd);
+  box-shadow: 0 18px 36px rgba(0, 123, 255, 0.2);
+}
+
+/* Infinite scroll animation */
+@keyframes scrollLoop {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+  .scroll-card {
+    min-width: 220px;
+    max-width: 220px;
+    padding: 20px;
+  }
+}
+/* 🔁 Scrolling cards effect */
+.scrolling-cards-wrapper {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  padding: 20px 0;
+}
+
+.scrolling-cards {
+  display: flex;
+  gap: 30px;
+  animation: scrollCards 20s linear infinite;
+  width: max-content;
+}
+
+@keyframes scrollCards {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+

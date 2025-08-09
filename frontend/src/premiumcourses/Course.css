@@ -1,14 +1,27 @@
 .course-card {
   border: 2px solid transparent;
+  background: linear-gradient(135deg, #fffaf0, #fdf7e2, #fff4dc);
+  background-size: 200% 200%;
+  animation: gradientShift 6s ease infinite;
   transition: all 0.3s ease-in-out;
-  background: linear-gradient(to bottom right, #ffffff, #fefefe);
   position: relative;
   overflow: hidden;
 }
 
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 .course-card:hover {
   border-color: #ff9800;
-  background: linear-gradient(135deg, #fef3e7, #fff9f0);
   transform: scale(1.03);
   box-shadow: 0 0 20px rgba(255, 193, 7, 0.3);
 }
@@ -16,6 +29,12 @@
 .course-icon {
   font-size: 3rem;
   animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.9; }
+  100% { transform: scale(1); opacity: 1; }
 }
 
 .enroll-btn {
@@ -26,27 +45,6 @@
   background-color: #ff9800;
   color: white;
   transform: scale(1.05);
-}
-
-.animated-card {
-  animation: fadeInUp 0.8s ease-out;
-}
-
-@keyframes pulse {
-  0% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.1); opacity: 0.9; }
-  100% { transform: scale(1); opacity: 1; }
-}
-
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 .tab-group {
@@ -79,7 +77,36 @@
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
   transform: scale(1.05);
 }
+.course-scroll-container {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 16px;
+  gap: 20px;
+  scroll-behavior: smooth;
+}
 
-.course-icon {
-  font-size: 2.5rem;
+
+
+.course-scroll-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
+}
+
+
+
+.course-scroll-card-wrapper {
+  flex: 0 0 300px;
+  scroll-snap-align: center;
+}
+
+.course-card {
+  background: linear-gradient(135deg, #fdfbfb, #ebedee);
+  border: 2px solid #f0f0f0;
+  transition: all 0.3s ease-in-out;
+}
+
+.course-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 18px rgba(255, 193, 7, 0.3);
+  background: linear-gradient(135deg, #fff3e0, #ffecb3);
 }

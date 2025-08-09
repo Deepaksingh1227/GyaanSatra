@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import './Contact.css';
 import { Container, Row, Col, Form, Button, Card } from 'react-bootstrap';
-import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt, FaPaperPlane, FaLinkedin, FaInstagram } from 'react-icons/fa';
+import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt, FaPaperPlane, FaLinkedin, FaInstagram, FaYoutube } from 'react-icons/fa';
 import emailjs from '@emailjs/browser';
 
 function Contact() {
@@ -43,7 +43,7 @@ function Contact() {
                 <Form ref={form} onSubmit={sendEmail}>
                   <Form.Group className="mb-3">
                     <Form.Label>Your Full Name</Form.Label>
-                    <Form.Control type="text" placeholder="John Doe" name="from_name" required />
+                    <Form.Control type="text" placeholder="Name" name="from_name" required />
                   </Form.Group>
                   <Form.Group className="mb-3">
                     <Form.Label>Email</Form.Label>
@@ -94,6 +94,7 @@ function Contact() {
                 <div className="social-icons">
                   <a href="#" className="linkedin"><FaLinkedin /></a>
                   <a href="#" className="instagram"><FaInstagram /></a>
+                  <a href="#" className="youtube"><FaYoutube /></a> 
                 </div>
               </Card.Body>
             </Card>

@@ -4,21 +4,19 @@ import './Team.css';
 import CEOImage from '../assets/ceo.jpg';
 import cofounder from '../assets/cofounder.jpg';
 import utkarsh from '../assets/utkarsh.jpg';
-import shraddha from '../assets/shraddha.jpg';
+import manager from '../assets/manager.jpg';
 import advisor from '../assets/advisor.jpg'; 
-import chief from '../assets/chief.jpg'; 
-import member from '../assets/member.png';
-import tech from '../assets/tech.png';
+import graphicalteam from '../assets/graphicalteam.jpg';
+import gr from '../assets/gr.jpg';
 
-
-function Team ()  {
+function Team() {
   const teamData = [
     {
       name: "Mansha Negi",
       role: "FOUNDER & CEO",
       quote: "Leading the vision of transforming education through structured learning and innovation.",
       icon: "bi bi-award",
-      image: CEOImage, 
+      image: CEOImage,
       bgColor: "bg-yellow",
     },
     {
@@ -26,15 +24,23 @@ function Team ()  {
       role: "CO-FOUNDER & CTO",
       quote: "Building the technical foundation that powers the future of learning.",
       icon: "bi bi-stars",
-      image: cofounder, 
+      image: cofounder,
       bgColor: "bg-orange",
+    },
+    {
+      name: "Sonali Gupta",
+      role: "Managerial Director",
+      quote: "Orchestrating operations with precision, turning plans into performance.",
+      icon: "bi bi-stars",
+      image: manager,
+      bgColor: "bg-blue",
     },
     {
       name: "Utkarsh Singh",
       role: "The ADMINISTRATIVE ANCHOR",
       quote: "Where Structure Meets Strategy.",
       icon: "bi bi-quote",
-      image: utkarsh, 
+      image: utkarsh,
       bgColor: "bg-pink",
     },
     {
@@ -43,46 +49,28 @@ function Team ()  {
       quote: "Guiding the strategic vision with experience and wisdom.",
       icon: "bi bi-lightbulb",
       image: advisor,
-      bgColor: "bg-green",  // ✅ New
+      bgColor: "bg-green",
     },
-    
     {
       name: "Kavya Rajput, Deepak Singh, Bharat Sharma & Asmit Kumar",
       role: "THE TECH CONQUERERS",
       quote: "From Firewalls to Final Slides – They've Got It Locked.",
       icon: "bi bi-shield-lock",
-      image: tech,
+      image: gr,
       bgColor: "bg-purple",
     },
-     
-     {
-      name: "Shraddha Sahni",
-      role: "COORDINATION HEAD",
-      quote: "Behind every successful event is a caffeinated coordinator.",
-      icon: "bi bi-stars",
-      image: shraddha,
-      bgColor: "bg-blue",
-    },
     {
-      name: "Amteshwar",
-      role: "COORDINATION CHIEF",
-      quote: "Orchestrating collaboration and ensuring smooth operations.",
-      icon: "bi bi-people-fill",
-      image: chief,
-      bgColor: "bg-red",  
-    },
-    {
-      name: "Aman Singh,Kartik",
+      name: "Aman Singh, Kartik, Disha",
       role: "GRAPHIC & EDITING TEAM",
       quote: "Crafting visuals and edits that bring stories to life with creativity and precision.",
       icon: "bi bi-brush",
-      image: member,
-      bgColor: "bg-indigo", // Already unique
+      image: graphicalteam,
+      bgColor: "bg-indigo",
     },
   ];
 
   return (
-    <section className="container py-5 visionary-section">
+    <section className="container-fluid py-5 visionary-section">
       <div className="text-center mb-5">
         <motion.h2
           className="visionary-title"
@@ -97,17 +85,20 @@ function Team ()  {
         </p>
       </div>
 
-      <div className="row g-4">
+      <div className="team-scroll-container px-3">
         {teamData.map((member, index) => (
           <motion.div
             key={index}
-            className="col-md-6 col-lg-6"
-            whileHover={{ scale: 1.03, y: -5 }}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: index * 0.2 }}
+            className="team-card-wrapper"
+            initial={{ opacity: 0, x: index % 2 === 0 ? 100 : -100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7, delay: index * 0.1 }}
           >
-            <div className={`vision-card ${member.bgColor}`}>
+            <motion.div
+              whileHover={{ scale: 1.04, rotate: 0.3 }}
+              className={`vision-card ${member.bgColor}`}
+            >
               <div className="vision-icon">
                 <i className={member.icon}></i>
               </div>
@@ -119,12 +110,12 @@ function Team ()  {
                   <p>{member.role}</p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </motion.div>
         ))}
       </div>
     </section>
   );
-};
+}
 
 export default Team;

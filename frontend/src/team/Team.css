@@ -1,8 +1,12 @@
+/* Section Background */
 .visionary-section {
   background: linear-gradient(to bottom, #fff7ed, #fffef9);
   border-radius: 16px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
+/* Section Heading */
 .visionary-title {
   font-weight: 700;
   font-size: 2.5rem;
@@ -15,33 +19,74 @@
   font-weight: 500;
 }
 
-/* Cards */
+/* Horizontal Scroll Container */
+.team-scroll-container {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding-bottom: 15px;
+}
+
+/* Hide scrollbar - cross-browser */
+.team-scroll-container::-webkit-scrollbar {
+  display: none;
+}
+.team-scroll-container {
+  -ms-overflow-style: none; /* IE 10+ */
+}
+@supports (scrollbar-width: none) {
+  .team-scroll-container {
+    scrollbar-width: none; /* Firefox */
+  }
+}
+
+/* Each team card in scroll */
+.team-card-wrapper {
+  flex: 0 0 auto;
+  width: 320px;
+  scroll-snap-align: center;
+}
+
+/* Card Styling */
 .vision-card {
   border-radius: 20px;
   padding: 30px;
   transition: all 0.4s ease;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
   position: relative;
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .vision-card:hover {
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
 }
 
+/* Card Icon */
 .vision-icon {
   font-size: 1.8rem;
   color: #a83200;
   margin-bottom: 10px;
 }
+.vision-icon i {
+  text-shadow: 0 0 5px rgba(168, 50, 0, 0.3);
+}
 
+/* Quote Text */
 blockquote {
   font-size: 1rem;
   font-style: italic;
   color: #333;
   margin-bottom: 20px;
+  min-height: 80px;
 }
 
-/* Footer with image and name */
+/* Footer (Image + Name/Role) */
 .vision-footer {
   display: flex;
   align-items: center;
@@ -49,7 +94,7 @@ blockquote {
 }
 
 .vision-img {
-  width:80px;
+  width: 80px;
   height: 80px;
   border-radius: 50%;
   border: 3px solid #fff;
@@ -71,19 +116,16 @@ blockquote {
   color: #a83200;
 }
 
-/* Background color themes */
+/* Background Themes */
 .bg-yellow {
   background: linear-gradient(145deg, #ffeda3, #ffe2a7);
 }
-
 .bg-orange {
   background: linear-gradient(145deg, #ffd1b2, #ffc3b2);
 }
-
 .bg-pink {
   background: linear-gradient(145deg, #ffc6dd, #fcd6e8);
 }
-
 .bg-purple {
   background: linear-gradient(145deg, #dcd7f5, #e6dbff);
 }
@@ -93,11 +135,38 @@ blockquote {
 .bg-green {
   background: linear-gradient(145deg, #d6f8d6, #baf0d2);
 }
-
 .bg-red {
   background: linear-gradient(145deg, #ffd4d4, #ffbaba);
 }
-
 .bg-indigo {
   background: linear-gradient(145deg, #d9d9ff, #e5ccff);
+}
+
+/* Responsive Fixes for Small Screens */
+@media (max-width: 767px) {
+  .visionary-section {
+    overflow-x: hidden;
+  }
+
+  .team-card-wrapper {
+    width: 270px;
+  }
+
+  .vision-card {
+    padding: 20px;
+    min-height: 400px;
+  }
+
+  .vision-img {
+    width: 65px;
+    height: 65px;
+  }
+
+  .vision-text h5 {
+    font-size: 1rem;
+  }
+
+  .vision-text p {
+    font-size: 0.85rem;
+  }
 }

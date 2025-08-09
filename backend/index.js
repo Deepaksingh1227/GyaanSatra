@@ -3,6 +3,8 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const connectDB = require('./config/db');
 
+
+
 dotenv.config();
 const app = express();
 
@@ -26,6 +28,9 @@ app.use("/api/payment", paymentRoutes);
 
 const authRoutes = require("./routes/authRoutes");
 app.use("/api/auth", authRoutes);
+
+const completedCoursesRoutes = require("./routes/completedCourses");
+app.use("/api/completed-courses", completedCoursesRoutes);
 
 
 

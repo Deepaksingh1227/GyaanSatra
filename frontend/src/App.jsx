@@ -23,9 +23,9 @@ import QuizSelector from "./quiz/QuizSelector";
 import SessionSelector from './notes/SessionSelector';
 import UploadForm from './notes/UploadForm';
 import CommunityPartners from "./communitypartners/CommunityPartners";
-
-
-
+import PreviousCoursesPage from "./previousCourses/PreviousCoursesPage";
+import AdminUploadCourse from './previousCourses/AdminUploadCourse';
+import AdminDashboard from './admin/AdminDashboard';
 
 
 
@@ -68,7 +68,9 @@ function App() {
           <Route path="/admin/upload" element={<UploadForm />} />
           <Route path="/session/:session" element={<NotesList />} />
           <Route path="/communitypartners" element={<CommunityPartners />} />
-
+          <Route path="/previous-courses" element={<PreviousCoursesPage />} />
+          <Route path="/admin/upload-course" element={<AdminUploadCourse />} />
+          <Route path="/admin-dashboard" element={<AdminDashboard />} />
           
           
         </Routes>

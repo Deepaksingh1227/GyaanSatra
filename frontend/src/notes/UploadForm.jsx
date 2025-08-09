@@ -31,7 +31,7 @@ const UploadForm = () => {
     const data = new FormData();
     data.append("title", form.title);
     data.append("session", form.session);
-    data.append("file", file);
+    data.append("notefile", file);
 
     await axios.post("/api/notes/upload", data, { headers });
     alert("Note uploaded!");
@@ -73,7 +73,7 @@ const UploadForm = () => {
           <option value="backend">Backend Development</option>
         </select>
         <input
-          type="upload"
+          type="file"
           className="form-control mb-2"
           onChange={(e) => setFile(e.target.files[0])}
         />

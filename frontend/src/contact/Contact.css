@@ -118,3 +118,8 @@
 .social-icons a:hover {
   transform: scale(1.1);
 }
+.social-icons a.youtube {
+ background-color: #FF0000; /* YouTube Red */
+}
+
+
