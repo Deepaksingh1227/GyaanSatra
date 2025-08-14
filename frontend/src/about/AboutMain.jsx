@@ -37,6 +37,7 @@ function AboutMain() {
     {
       icon: <FaMicroscope size={28} />,
       title: 'Forensic Excellence',
+      
       desc: 'Advanced forensic science education with modern analysis methods and techniques.',
     },
     {
