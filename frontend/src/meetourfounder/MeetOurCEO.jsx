@@ -19,7 +19,9 @@ function MeetOurCEO  ()  {
           transition={{ duration: 0.8 }}
         >
           <h2 className="ceo-title">Meet Our Founder</h2>
-          <p className="ceo-subtitle">Leading the path of truth through innovative education</p>
+          <p className="ceo-subtitle bg-gradient-to-r from-gray-900 to-gray-300 bg-clip-text text-transparent">
+  Leading the path of truth through innovative education
+</p>
         </motion.div>
 
         <div className="row align-items-center">
