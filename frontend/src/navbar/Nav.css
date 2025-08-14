@@ -1,35 +1,73 @@
-
-.navbar-nav .nav-link {
-  transition: color 0.3s ease;
-  color: #333 !important;
+/* Fixed Navbar Base - Forensic Dark Theme */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: linear-gradient(90deg, #050a12, #0a192f); /* deep forensic gradient */
+  padding: 14px 0;
+  z-index: 999;
+  box-shadow: 0 4px 20px rgba(0, 229, 255, 0.15); /* cyan glow shadow */
+  border-bottom: 1px solid rgba(0, 229, 255, 0.1);
+}
+.neon-text {
+  text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 20px #00e5ff;
 }
 
+
+/* Navbar Links */
+.navbar-nav .nav-link {
+  position: relative;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  color: #e2e8f0 !important; /* soft whitish-gray */
+  text-transform: uppercase;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+/* Active Link */
+.navbar-nav .nav-link.active {
+  color: #00e5ff !important;
+  text-shadow: 0 0 8px rgba(0, 229, 255, 0.8);
+  font-weight: 700;
+}
+
+/* Hover Animation: Underline Neon */
+.navbar-nav .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: #00e5ff;
+  box-shadow: 0 0 8px rgba(0, 229, 255, 0.8);
+  transition: width 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover::after {
+  width: 100%;
+}
 
 .navbar-nav .nav-link:hover {
-  color: #fb9718 !important; /* orange hover */
+  color: #00e5ff !important;
+  text-shadow: 0 0 6px rgba(0, 229, 255, 0.8);
 }
-.navbar-nav .nav-link.active {
-  color: #15d1e9 !important; /* cyan active color */
-  font-weight: bold;
-}
+
+/* Nav Items Container */
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
+/* Nav Item */
 .nav-item {
   cursor: pointer;
-  transition: transform 0.2s ease;
 }
 
-.nav-link {
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-}
-
+/* Group Hover Scaling */
 .group:hover .nav-link {
-  color: #007bff;
   transform: scale(1.05);
+  transition: transform 0.2s ease;
 }
