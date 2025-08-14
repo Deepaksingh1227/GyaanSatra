@@ -116,7 +116,7 @@ function CourseSection() {
           </div>
 
           <motion.h2
-            className="text-danger fw-bold mb-2"
+            className="text-forensic fw-bold mb-2"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -124,7 +124,7 @@ function CourseSection() {
             Our Premium Courses
           </motion.h2>
           <motion.p
-            className="text-muted mb-5"
+            className="text-gray-100 mb-5"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.2 }}
