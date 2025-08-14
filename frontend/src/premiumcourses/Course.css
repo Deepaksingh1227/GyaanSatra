@@ -1,11 +1,12 @@
 .course-card {
   border: 2px solid transparent;
-  background: linear-gradient(135deg, #fffaf0, #fdf7e2, #fff4dc);
+  background: linear-gradient(135deg, #0d1b2a, #1b263b); /* Dark cyber navy blend */
   background-size: 200% 200%;
   animation: gradientShift 6s ease infinite;
   transition: all 0.3s ease-in-out;
   position: relative;
   overflow: hidden;
+  color: #19f5e8; /* Neon cyan text for high-tech feel */
 }
 
 @keyframes gradientShift {
@@ -21,29 +22,33 @@
 }
 
 .course-card:hover {
-  border-color: #ff9800;
+  border-color: #19f5e8; /* Neon cyan border on hover */
   transform: scale(1.03);
-  box-shadow: 0 0 20px rgba(255, 193, 7, 0.3);
+  box-shadow: 0 0 20px rgba(25, 245, 232, 0.45);
 }
 
 .course-icon {
   font-size: 3rem;
   animation: pulse 2s infinite;
+  color: #19f5e8; /* Neon cyan icons */
 }
 
 @keyframes pulse {
   0% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.1); opacity: 0.9; }
+  50% { transform: scale(1.1); opacity: 0.8; }
   100% { transform: scale(1); opacity: 1; }
 }
 
 .enroll-btn {
   transition: background-color 0.3s ease, transform 0.2s;
+  background-color: #19f5e8; /* Neon cyan button */
+  color: #0d1b2a; /* Dark background text */
+  font-weight: bold;
 }
 
 .enroll-btn:hover {
-  background-color: #ff9800;
-  color: white;
+  background-color: #14c7be; /* Slightly deeper cyan */
+  color: #ffffff;
   transform: scale(1.05);
 }
 
@@ -56,27 +61,28 @@
   font-size: 1rem;
   font-weight: 600;
   border-radius: 50px;
-  border: 2px solid #0d6efd;
-  background-color: white;
-  color: #0d6efd;
+  border: 2px solid #19f5e8;
+  background-color: transparent;
+  color: #19f5e8;
   transition: all 0.3s ease;
-  box-shadow: 0 2px 8px rgba(13, 110, 253, 0.1);
+  box-shadow: 0 2px 8px rgba(25, 245, 232, 0.15);
   cursor: pointer;
 }
 
 .tab-modern:hover {
-  background-color: #0d6efd;
-  color: #fff;
+  background-color: #19f5e8;
+  color: #0d1b2a;
   transform: translateY(-2px);
-  box-shadow: 0 6px 14px rgba(13, 110, 253, 0.25);
+  box-shadow: 0 6px 14px rgba(25, 245, 232, 0.4);
 }
 
 .tab-modern.active {
-  background: linear-gradient(135deg, #0d6efd, #6610f2);
-  color: white;
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(135deg, #19f5e8, #14c7be);
+  color: #0d1b2a;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
   transform: scale(1.05);
 }
+
 .course-scroll-container {
   display: flex;
   overflow-x: auto;
@@ -86,13 +92,9 @@
   scroll-behavior: smooth;
 }
 
-
-
 .course-scroll-container::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Edge */
+  display: none;
 }
-
-
 
 .course-scroll-card-wrapper {
   flex: 0 0 300px;
@@ -100,13 +102,14 @@
 }
 
 .course-card {
-  background: linear-gradient(135deg, #fdfbfb, #ebedee);
-  border: 2px solid #f0f0f0;
+  background: linear-gradient(135deg, #0d1b2a, #1b263b); /* Forensic gradient */
+  border: 2px solid #142c40;
   transition: all 0.3s ease-in-out;
+  color: #19f5e8;
 }
 
 .course-card:hover {
   transform: scale(1.03);
-  box-shadow: 0 0 18px rgba(255, 193, 7, 0.3);
-  background: linear-gradient(135deg, #fff3e0, #ffecb3);
+  box-shadow: 0 0 20px rgba(25, 245, 232, 0.45);
+  background: linear-gradient(135deg, #142c40, #1b2f44); /* Slightly lighter hover */
 }
