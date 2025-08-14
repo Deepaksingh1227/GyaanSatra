@@ -1,19 +1,20 @@
 /* =====================
-   Home.css – Updated with Animations & Styling
+   Home.css – Cyber Forensic Glow Theme
    ===================== */
 
 /* General Styling */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #f7f9fb;
+  background: radial-gradient(circle at top, #0d1b2a, #000814);
   margin: 0;
   padding: 0;
+  color: #e0f7fa;
 }
 
 /* Homepage Wrapper */
 .homepage-wrapper {
-  background: linear-gradient(135deg, #e0f7fa, #f1f8e9);
-  box-shadow: inset 0 0 80px rgba(0, 123, 255, 0.05);
+  background: linear-gradient(135deg, rgba(0, 36, 61, 0.9), rgba(0, 15, 30, 0.95));
+  box-shadow: inset 0 0 80px rgba(0, 255, 255, 0.08);
   border-radius: 20px;
   margin: 20px;
   padding: 60px 20px;
@@ -35,7 +36,8 @@ body {
   left: -80px;
   width: 220px;
   height: 220px;
-  background: radial-gradient(circle, rgba(0, 255, 255, 0.2), transparent);
+  background: radial-gradient(circle, rgba(0, 255, 255, 0.25), transparent);
+  box-shadow: 0 0 40px rgba(0, 255, 255, 0.4);
 }
 
 .homepage-wrapper::after {
@@ -43,7 +45,8 @@ body {
   right: -100px;
   width: 250px;
   height: 250px;
-  background: radial-gradient(circle, rgba(0, 200, 83, 0.15), transparent);
+  background: radial-gradient(circle, rgba(0, 200, 83, 0.25), transparent);
+  box-shadow: 0 0 50px rgba(0, 200, 83, 0.4);
 }
 
 .homepage-wrapper > .container {
@@ -56,23 +59,23 @@ body {
   height: 110px;
   width: auto;
   border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 10px 30px rgba(0, 255, 255, 0.25);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .homepage-logo:hover {
   transform: scale(1.06);
-  box-shadow: 0 16px 40px rgba(0, 200, 255, 0.3);
+  box-shadow: 0 16px 50px rgba(0, 255, 255, 0.6);
 }
 
 /* Headings */
 .Headings {
-  background: linear-gradient(135deg, #ff8c00, #ffa500, #ffd700);
+  background: linear-gradient(135deg, #00e5ff, #00ff95, #f5b700);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: fadeInInitial 1s ease forwards;
-  transition: all 0.4s ease;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.4), 0 0 20px rgba(0, 255, 149, 0.4);
   cursor: pointer;
 }
 
@@ -94,11 +97,11 @@ body {
 
 /* Tagline */
 .text-secondary.fw-semibold.fs-5 {
-  background: linear-gradient(to right, #0072ff, #00c6ff);
+  background: linear-gradient(to right, #00f0ff, #00ff95);
   -webkit-background-clip: text;
-   background-clip: text; /* ✅ add this for compatibility */
- 
+  background-clip: text;
   -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 8px rgba(0, 255, 255, 0.4);
 }
 
 /* Buttons */
@@ -116,51 +119,60 @@ body {
 button.btn-warning {
   background: linear-gradient(135deg, #f5b700, #fb9718);
   border: none;
-  color: #fff;
-  transition: background 0.3s ease, transform 0.2s ease;
+  color: #000;
+  font-weight: bold;
+  box-shadow: 0 0 15px rgba(245, 183, 0, 0.4);
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
 }
 
 button.btn-warning:hover {
   background: linear-gradient(135deg, #fb9718, #f5b700);
   transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(245, 183, 0, 0.6);
 }
 
 button.btn-outline-warning {
   border: 2px solid #f5b700;
   color: #f5b700;
+  font-weight: bold;
   transition: all 0.3s ease;
 }
 
 button.btn-outline-warning:hover {
   background-color: #f5b700;
-  color: white;
+  color: black;
+  box-shadow: 0 0 20px rgba(245, 183, 0, 0.6);
 }
 
 button.btn-outline-info {
   border: 2px solid #00c6ff;
   color: #00c6ff;
+  font-weight: bold;
   transition: all 0.3s ease;
 }
 
 button.btn-outline-info:hover {
   background-color: #00c6ff;
-  color: white;
+  color: black;
+  box-shadow: 0 0 20px rgba(0, 198, 255, 0.6);
 }
 
 /* Card Styling */
 .card-hover {
-  background: rgba(255, 255, 255, 0.85);
-  border-width: 2px !important;
+  background: rgba(5, 20, 40, 0.8);
+  border: 1px solid rgba(0, 255, 255, 0.3) !important;
   border-radius: 16px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
   cursor: pointer;
-  -webkit-backdrop-filter: blur(6px);
-  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.15);
 }
 
 .card-hover:hover {
   transform: translateY(-10px);
-  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.4), 0 0 45px rgba(0, 255, 149, 0.4);
+  border: 1px solid rgba(0, 255, 255, 0.6) !important;
 }
 
 /* Horizontal Animation for Cards */
@@ -168,7 +180,6 @@ button.btn-outline-info:hover {
   display: flex;
   gap: 30px;
   animation: scrollCards 20s linear infinite;
-  overflow: hidden;
   width: max-content;
 }
 
@@ -177,9 +188,18 @@ button.btn-outline-info:hover {
   100% { transform: translateX(-50%); }
 }
 
+/* Horizontal Scroll Container */
+.card-scroll-container {
+  overflow-x: hidden;
+  white-space: nowrap;
+  position: relative;
+  width: 100%;
+}
+
 @media (max-width: 768px) {
   .card-row-animation {
     flex-direction: column;
     animation: none;
+    width: 100%;
   }
 }
