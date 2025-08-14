@@ -9,7 +9,7 @@ import HeroIntro from '../HeroIntro';
 
 function Homemain() {
   const navigate = useNavigate();
-  const [showMain, setShowMain] = useState(false); // ✅ Fix useState import
+  const [showMain, setShowMain] = useState(false);
 
   const fadeUp = {
     hidden: { opacity: 0, y: 30 },
@@ -37,9 +37,9 @@ function Homemain() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
         >
-          <FaStar className="text-warning me-2" size={24} />
+         
           <span className="text-secondary fw-semibold fs-5">On The Path Of Truth</span>
-          <FaStar className="text-warning ms-2" size={24} />
+          
         </motion.div>
 
         <motion.h1
@@ -126,7 +126,8 @@ function Homemain() {
                 <Card key={idx} className={`card-hover ${card.border} shadow-sm`}>
                   <Card.Body className="text-center">
                     {card.icon}
-                    <Card.Title className="fw-bold text-dark">{card.title}</Card.Title>
+                    {/* ✅ Changed from text-dark to text-white */}
+                    <Card.Title className="fw-bold text-white">{card.title}</Card.Title>
                     <Card.Text className="text-secondary">{card.desc}</Card.Text>
                   </Card.Body>
                 </Card>
