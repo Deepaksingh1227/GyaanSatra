@@ -1,16 +1,16 @@
 .ceo-section {
-  background: linear-gradient(to bottom, #fffdf9, #fff7ed);
+  background: linear-gradient(to bottom, #000617, #b4c4ec); /* brighter, cooler forensic teal-blue */
   border-radius: 20px;
 }
 
 .ceo-title {
   font-weight: 700;
   font-size: 2.8rem;
-  color: #ff6f00;
+  color: #00c2d8; /* bright cyan-teal forensic */
 }
 
 .ceo-subtitle {
-  color: #333;
+  color: #2d3748; /* professional dark gray-blue */
   font-size: 1.2rem;
   font-weight: 500;
 }
@@ -35,71 +35,61 @@
 .ceo-name {
   font-size: 2rem;
   font-weight: 700;
-  color: #111;
+  color: #0a192f; /* deep navy for professionalism */
 }
 
 .ceo-role {
   font-size: 1.2rem;
-  color: #ff6f00;
+  color: #00c2d8; /* cyan forensic highlight */
   font-weight: 600;
   margin-bottom: 15px;
 }
 
 .ceo-description {
   font-size: 1rem;
-  color: #444;
+  color: #3b4a59;
   line-height: 1.7;
 }
 
 .ceo-feature {
-  background-color: #fff2e0;
+  background-color: #f0f7fa; /* soft light blue-gray */
   border-radius: 12px;
   padding: 15px;
   text-align: center;
   transition: all 0.3s ease;
-  border: 1px solid #ffd6a6;
+  border: 1px solid #c7e6ee;
 }
 
 .ceo-feature:hover {
-  background-color: #ffe8cc;
+  background-color: #e3f2f9;
   transform: translateY(-5px);
 }
 
 .ceo-feature i {
   font-size: 1.8rem;
-  color: #ff6f00;
+  color: #00c2d8;
   margin-bottom: 8px;
   transition: color 0.3s ease;
 }
 
 .ceo-feature:hover i {
-  color: #e65c00;
+  color: #0096a8;
 }
 
 .ceo-feature h6 {
   font-size: 1rem;
   font-weight: 600;
-  color: #222;
+  color: #1a202c;
 }
 
 .ceo-feature p {
   font-size: 0.9rem;
-  color: #555;
+  color: #4a5568;
 }
 
+/* Forensic styled connect button */
 .connect-btn {
-  background: linear-gradient(90deg, #ff8a00, #e52e71);
-  color: white;
-  padding: 10px 20px;
-  border-radius: 50px;
-  font-weight: 600;
-  border: none;
-  display: inline-block;
-  transition: 0.3s;
-}
-
-.connect-btn {
-  background: linear-gradient(90deg, #ff8a00, #e52e71);
+  background: linear-gradient(90deg, #007d99, #00c2d8); /* teal to cyan gradient */
   color: white;
   padding: 10px 20px;
   border-radius: 50px;
@@ -110,14 +100,8 @@
 }
 
 .connect-btn:hover {
-  background: linear-gradient(90deg, #e52e71, #ff8a00);
+  background: linear-gradient(90deg, #00c2d8, #007d99);
   text-decoration: none;
   color: white;
-}
-
-
-
-.connect-btn:hover {
-  background: linear-gradient(to right, #e55d00, #ff7800);
   transform: translateY(-2px);
 }
