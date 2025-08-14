@@ -1,20 +1,22 @@
 /* Section Background */
 .visionary-section {
-  background: linear-gradient(to bottom, #fff7ed, #fffef9);
+  background: linear-gradient(to bottom, #0d1b2a, #1b263b); /* Dark forensic gradient */
   border-radius: 16px;
   padding-left: 10px;
   padding-right: 10px;
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.08);
 }
 
 /* Section Heading */
 .visionary-title {
   font-weight: 700;
   font-size: 2.5rem;
-  color: #a83200;
+  color: #00e5ff; /* Neon cyan forensics */
+  text-shadow: 0 0 8px rgba(0, 229, 255, 0.6);
 }
 
 .visionary-subtitle {
-  color: #5a5a5a;
+  color: #cfd8dc; /* Cool light gray */
   font-size: 1.1rem;
   font-weight: 500;
 }
@@ -34,11 +36,11 @@
   display: none;
 }
 .team-scroll-container {
-  -ms-overflow-style: none; /* IE 10+ */
+  -ms-overflow-style: none;
 }
 @supports (scrollbar-width: none) {
   .team-scroll-container {
-    scrollbar-width: none; /* Firefox */
+    scrollbar-width: none;
   }
 }
 
@@ -53,8 +55,11 @@
 .vision-card {
   border-radius: 20px;
   padding: 30px;
+  background: rgba(255, 255, 255, 0.05); /* Glass effect */
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(0, 229, 255, 0.15);
   transition: all 0.4s ease;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 20px rgba(0, 255, 255, 0.05);
   position: relative;
   min-height: 420px;
   display: flex;
@@ -64,24 +69,24 @@
 
 .vision-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 25px rgba(0, 229, 255, 0.4);
 }
 
 /* Card Icon */
 .vision-icon {
   font-size: 1.8rem;
-  color: #a83200;
+  color: #00e5ff;
   margin-bottom: 10px;
 }
 .vision-icon i {
-  text-shadow: 0 0 5px rgba(168, 50, 0, 0.3);
+  text-shadow: 0 0 5px rgba(0, 229, 255, 0.5);
 }
 
 /* Quote Text */
 blockquote {
   font-size: 1rem;
   font-style: italic;
-  color: #333;
+  color: #e0f7fa;
   margin-bottom: 20px;
   min-height: 80px;
 }
@@ -97,8 +102,8 @@ blockquote {
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  border: 3px solid #fff;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  border: 3px solid #00e5ff;
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
   object-fit: cover;
 }
 
@@ -106,40 +111,40 @@ blockquote {
   font-size: 1.1rem;
   font-weight: 700;
   margin: 0;
-  color: #111;
+  color: #ffffff;
 }
 
 .vision-text p {
   margin: 0;
   font-size: 0.9rem;
   font-weight: 500;
-  color: #a83200;
+  color: #00e5ff;
 }
 
-/* Background Themes */
+/* Background Themes - forensic inspired */
 .bg-yellow {
-  background: linear-gradient(145deg, #ffeda3, #ffe2a7);
+  background: linear-gradient(145deg, #222, #444);
 }
 .bg-orange {
-  background: linear-gradient(145deg, #ffd1b2, #ffc3b2);
+  background: linear-gradient(145deg, #0f2027, #203a43);
 }
 .bg-pink {
-  background: linear-gradient(145deg, #ffc6dd, #fcd6e8);
+  background: linear-gradient(145deg, #2c3e50, #4ca1af);
 }
 .bg-purple {
-  background: linear-gradient(145deg, #dcd7f5, #e6dbff);
+  background: linear-gradient(145deg, #1f1c2c, #928dab);
 }
 .bg-blue {
-  background: linear-gradient(145deg, #cce7ff, #d9f0ff);
+  background: linear-gradient(145deg, #0f2027, #2c5364);
 }
 .bg-green {
-  background: linear-gradient(145deg, #d6f8d6, #baf0d2);
+  background: linear-gradient(145deg, #134e5e, #71b280);
 }
 .bg-red {
-  background: linear-gradient(145deg, #ffd4d4, #ffbaba);
+  background: linear-gradient(145deg, #41295a, #2f0743);
 }
 .bg-indigo {
-  background: linear-gradient(145deg, #d9d9ff, #e5ccff);
+  background: linear-gradient(145deg, #283e51, #485563);
 }
 
 /* Responsive Fixes for Small Screens */
