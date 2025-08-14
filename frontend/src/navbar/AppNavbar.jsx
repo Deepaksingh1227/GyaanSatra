@@ -54,18 +54,19 @@ function AppNavbar() {
         style={{ boxShadow: "0 4px 6px rgba(0,0,0,0.1)" }}
       >
         <Container>
-          <Navbar.Brand
-            as={isHomePage ? ScrollLink : 'div'}
-            to="home"
-            smooth={true}
-            duration={500}
-            className="fw-bold text-danger d-flex align-items-center gap-2"
-            style={{ cursor: 'pointer' }}
-            onClick={() => {
-              if (!isHomePage) navigate("/");
-              else scrollToSection("home");
-            }}
-          >
+        <Navbar.Brand
+  as={isHomePage ? ScrollLink : 'div'}
+  to="home"
+  smooth={true}
+  duration={500}
+  className="fw-bold d-flex align-items-center gap-2 text-cyan-400 neon-text"
+  style={{ cursor: 'pointer' }}
+  onClick={() => {
+    if (!isHomePage) navigate("/");
+    else scrollToSection("home");
+  }}
+>
+
             <img
               src={logo}
               width="50"
