@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "../api/axios";
 import { Container, Row, Col, Card, Spinner, Alert } from "react-bootstrap";
+import "./PreviousCourses.css"; // custom styles
 
 const PreviousCourses = () => {
   const [courses, setCourses] = useState([]);
@@ -20,8 +21,8 @@ const PreviousCourses = () => {
   }, []);
 
   return (
-    <Container className="mt-5 pt-5">
-      <h2 className="text-center mb-4">📘 Previously Completed Courses</h2>
+    <Container className="previous-courses-container">
+      <h2 className="section-title">📘 Previously Completed Courses</h2>
 
       {loading ? (
         <div className="text-center mt-5">
@@ -35,34 +36,40 @@ const PreviousCourses = () => {
         <Row>
           {courses.map((course) => (
             <Col md={6} lg={4} key={course._id} className="mb-4">
-              <Card className="shadow-sm h-50">
+              <Card className="course-card h-100 shadow-sm">
                 {course.image && (
-                  <Card.Img
-                    variant="top"
-                    src={course.image}
-                    alt={course.title}
-                    style={{ height: "300px", objectFit:"" }}
-                  />
+                  <div className="course-img-wrapper">
+                    <Card.Img
+                      variant="top"
+                      src={course.image}
+                      alt={course.title}
+                      className="course-img"
+                    />
+                  </div>
                 )}
-                <Card.Body>
-                  <Card.Title className="fw-bold fs-5">{course.title}</Card.Title>
-                  <Card.Text style={{ whiteSpace: "pre-wrap" }}>
+                <Card.Body className="d-flex flex-column">
+                  <Card.Title className="course-title">
+                    {course.title}
+                  </Card.Title>
+                  <Card.Text className="course-description">
                     {course.description}
                   </Card.Text>
-                  <p className="mb-1">
+                  <p className="course-date mt-auto">
                     <strong>📅 Last Date:</strong>{" "}
                     {course.lastDate
                       ? new Date(course.lastDate).toLocaleDateString()
                       : "Not specified"}
                   </p>
-                  <a
-                    href={course.registrationLink}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="btn btn-outline-primary mt-2"
-                  >
-                    🔗 Register Now
-                  </a>
+                  {course.registrationLink && (
+                    <a
+                      href={course.registrationLink}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="btn btn-primary w-100"
+                    >
+                      🔗 Register Now
+                    </a>
+                  )}
                 </Card.Body>
               </Card>
             </Col>

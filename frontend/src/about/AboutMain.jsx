@@ -1,12 +1,12 @@
-import React, { useEffect, useState, useRef } from 'react';
-import { Container } from 'react-bootstrap';
-import { FaMicroscope, FaCodeBranch, FaLaptopCode, FaAward } from 'react-icons/fa';
-import { motion, useInView } from 'framer-motion';
-import './AboutMain.css';
+import React, { useEffect, useState, useRef } from "react";
+import { Container } from "react-bootstrap";
+import { FaMicroscope, FaCodeBranch, FaLaptopCode, FaAward } from "react-icons/fa";
+import { motion, AnimatePresence, useInView } from "framer-motion";
+import "./AboutMain.css";
 
 function Counter({ target, duration, suffix = "" }) {
   const [count, setCount] = useState(0);
-  const ref = useRef();
+  const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
   useEffect(() => {
@@ -27,35 +27,80 @@ function Counter({ target, duration, suffix = "" }) {
 
   return (
     <h3 ref={ref} className="count-number">
-      {count.toLocaleString()}{suffix}
+      {count.toLocaleString()}
+      {suffix}
     </h3>
   );
 }
 
-function AboutMain() {
+export default function AboutMain() {
   const cards = [
     {
       icon: <FaMicroscope size={28} />,
-      title: 'Forensic Excellence',
-      
-      desc: 'Advanced forensic science education with modern analysis methods and techniques.',
+      title: "Forensic Excellence",
+      desc: "Advanced forensic science education with modern analysis methods and techniques.",
     },
     {
       icon: <FaCodeBranch size={28} />,
-      title: 'DSA Mastery',
-      desc: 'Comprehensive DSA training for competitive programming and coding excellence.',
+      title: "DSA Mastery",
+      desc: "Comprehensive DSA training for competitive programming and coding excellence.",
     },
     {
       icon: <FaLaptopCode size={28} />,
-      title: 'Web Development',
-      desc: 'Full-stack web development including frontend, backend, and deployment.',
+      title: "Web Development",
+      desc: "Full-stack web development including frontend, backend, and deployment.",
     },
     {
       icon: <FaAward size={28} />,
-      title: 'Proven Results',
-      desc: 'Track record of excellence among students in various specialized fields.',
+      title: "Proven Results",
+      desc: "Track record of excellence among students in various specialized fields.",
     },
   ];
+
+  // --- Slider state ---
+  const [index, setIndex] = useState(0);
+  const [direction, setDirection] = useState(1);
+
+  const paginate = (dir) => {
+    setDirection(dir);
+    setIndex((prev) => (prev + dir + cards.length) % cards.length);
+  };
+
+  const goTo = (i) => {
+    if (i === index) return;
+    setDirection(i > index ? 1 : -1);
+    setIndex((i + cards.length) % cards.length);
+  };
+
+  // Auto-slide
+  useEffect(() => {
+    const id = setInterval(() => paginate(1), 3000);
+    return () => clearInterval(id);
+  }, []); // eslint-disable-line
+
+  // Drag/swipe helpers
+  const swipeConfidenceThreshold = 10000;
+  const swipePower = (offset, velocity) => Math.abs(offset) * velocity;
+
+  const variants = {
+    enter: (dir) => ({
+      x: dir > 0 ? 320 : -320,
+      opacity: 0,
+      scale: 0.98,
+    }),
+    center: {
+      x: 0,
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 0.5, ease: "easeOut" },
+    },
+    exit: (dir) => ({
+      x: dir < 0 ? 320 : -320,
+      opacity: 0,
+      scale: 0.98,
+      transition: { duration: 0.45, ease: "easeIn" },
+    }),
+  };
 
   return (
     <section className="about-section py-5">
@@ -63,7 +108,7 @@ function AboutMain() {
       <div className="glow-circle glow-2"></div>
 
       <Container className="text-center">
-        <motion.h2 
+        <motion.h2
           className="about-title"
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -72,34 +117,71 @@ function AboutMain() {
           About <span className="highlight">Gyaan Satra</span>
         </motion.h2>
 
-        <motion.p 
+        <motion.p
           className="about-subtitle"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.4, duration: 0.8 }}
         >
-          <span className="tagline">"On The Path Of Truth"</span> – Gyaan Satra represents the confluence of knowledge and action where learning meets implementation.
+          <span className="tagline">"On The Path Of Truth"</span> – Gyaan Satra
+          represents the confluence of knowledge and action where learning meets implementation.
         </motion.p>
 
-        {/* 🌟 Scrolling Cards Section */}
-        <div className="scrolling-cards-wrapper">
-          <div className="scrolling-cards">
-            {[...cards, ...cards].map((card, index) => (
-              <motion.div
-                key={index}
-                className="about-card p-4 rounded-4 text-center shadow-sm"
-                whileHover={{ scale: 1.06 }}
-              >
-                <div className="icon-box mb-3">{card.icon}</div>
-                <h5 className="fw-bold mb-2">{card.title}</h5>
-                <p className="text-muted">{card.desc}</p>
-              </motion.div>
+        {/* 🌟 Horizontal one-by-one slider (keeps your card style) */}
+        <div className="cards-slider-viewport">
+          <button
+            className="slider-btn prev"
+            aria-label="Previous"
+            onClick={() => paginate(-1)}
+          >
+            ‹
+          </button>
+
+          <AnimatePresence initial={false} custom={direction} mode="wait">
+            <motion.div
+              key={index}
+              className="about-card p-4 rounded-4 text-center shadow-sm slide"
+              custom={direction}
+              variants={variants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              drag="x"
+              dragConstraints={{ left: 0, right: 0 }}
+              onDragEnd={(e, { offset, velocity }) => {
+                const swipe = swipePower(offset.x, velocity.x);
+                if (swipe < -swipeConfidenceThreshold) paginate(1);
+                else if (swipe > swipeConfidenceThreshold) paginate(-1);
+              }}
+            >
+              <div className="icon-box mb-3">{cards[index].icon}</div>
+              <h5 className="fw-bold mb-2">{cards[index].title}</h5>
+              <p className="text-muted">{cards[index].desc}</p>
+            </motion.div>
+          </AnimatePresence>
+
+          <button
+            className="slider-btn next"
+            aria-label="Next"
+            onClick={() => paginate(1)}
+          >
+            ›
+          </button>
+
+          <div className="slider-dots">
+            {cards.map((_, i) => (
+              <button
+                key={i}
+                className={`dot ${i === index ? "active" : ""}`}
+                aria-label={`Go to ${cards[i].title}`}
+                onClick={() => goTo(i)}
+              />
             ))}
           </div>
         </div>
 
-        {/* 🎯 Mission Section */}
-        <motion.div 
+        {/* 🎯 Mission Section (unchanged) */}
+        <motion.div
           className="mission-section mt-5"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -133,4 +215,3 @@ function AboutMain() {
   );
 }
 
-export default AboutMain;

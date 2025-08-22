@@ -46,6 +46,7 @@
   padding: 30px;
   transition: transform 0.5s ease, box-shadow 0.5s ease, background 0.5s ease;
   box-shadow: 0 4px 20px rgba(0, 255, 170, 0.08);
+  -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
   overflow: hidden;
   position: relative;
@@ -99,3 +100,77 @@
   color: #6c757d !important;
 }
 
+/* --- Slider wrapper: centers one card, hides overflow (no theme changes) --- */
+.cards-slider-viewport {
+  position: relative;
+  height: 280px;        /* enough height for your about-card */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;     /* hide sliding in/out */
+  margin-top: 18px;
+}
+
+/* The moving slide uses your existing .about-card styles */
+.slide {
+  max-width: 360px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+/* Prev/Next buttons - glassy, subtle, fits your neon/glass style */
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 255, 170, 0.2);
+  background: rgba(255, 255, 255, 0.06);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  color: #e0f7fa;
+  font-size: 22px;
+  line-height: 1;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+  z-index: 2;
+}
+
+.slider-btn:hover {
+  box-shadow: 0 0 18px rgba(0, 255, 170, 0.35);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.slider-btn.prev { left: 8px; }
+.slider-btn.next { right: 8px; }
+
+/* Dots */
+.slider-dots {
+  position: absolute;
+  bottom: 10px;
+  left: 0; right: 0;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.slider-dots .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  border: none;
+  background: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.slider-dots .dot.active {
+  background: #00f5d4; /* matches your aqua neon */
+  transform: scale(1.2);
+}

@@ -3,7 +3,7 @@
   position: fixed;
   top: 0;
   width: 100%;
-  background: linear-gradient(90deg, #050a12, #0a192f); /* deep forensic gradient */
+  background: linear-gradient(90deg, #050a12, #587298); /* deep forensic gradient */
   padding: 14px 0;
   z-index: 999;
   box-shadow: 0 4px 20px rgba(0, 229, 255, 0.15); /* cyan glow shadow */

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import './Team.css';
 import CEOImage from '../assets/ceo.jpg';
@@ -10,6 +10,8 @@ import graphicalteam from '../assets/graphicalteam.jpg';
 import gr from '../assets/gr.jpg';
 
 function Team() {
+  const [selectedMember, setSelectedMember] = useState(null);
+
   const teamData = [
     {
       name: "Mansha Negi",
@@ -85,6 +87,7 @@ function Team() {
         </p>
       </div>
 
+      {/* Team Cards */}
       <div className="team-scroll-container px-3">
         {teamData.map((member, index) => (
           <motion.div
@@ -98,6 +101,7 @@ function Team() {
             <motion.div
               whileHover={{ scale: 1.04, rotate: 0.3 }}
               className={`vision-card ${member.bgColor}`}
+              onClick={() => setSelectedMember(member)} // open popup
             >
               <div className="vision-icon">
                 <i className={member.icon}></i>
@@ -114,6 +118,26 @@ function Team() {
           </motion.div>
         ))}
       </div>
+
+      {/* Popup Modal */}
+      {selectedMember && (
+        <div className="popup-overlay" onClick={() => setSelectedMember(null)}>
+          <motion.div
+            className="popup-card"
+            initial={{ opacity: 0, scale: 0.7 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.7 }}
+            transition={{ duration: 0.3 }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <img src={selectedMember.image} alt={selectedMember.name} className="popup-img" />
+            <h3>{selectedMember.name}</h3>
+            <p className="popup-role">{selectedMember.role}</p>
+            <p className="popup-quote">“{selectedMember.quote}”</p>
+            <button className="popup-close" onClick={() => setSelectedMember(null)}>×</button>
+          </motion.div>
+        </div>
+      )}
     </section>
   );
 }

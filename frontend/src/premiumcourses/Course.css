@@ -67,6 +67,7 @@
   transition: all 0.3s ease;
   box-shadow: 0 2px 8px rgba(25, 245, 232, 0.15);
   cursor: pointer;
+  ;
 }
 
 .tab-modern:hover {

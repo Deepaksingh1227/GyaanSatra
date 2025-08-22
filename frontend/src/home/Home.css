@@ -203,3 +203,12 @@ button.btn-outline-info:hover {
     width: 100%;
   }
 }
+
+.neon-text{
+  color: rgb(199, 171, 10);
+  text-shadow:
+    0 0 5px rgb(19, 53, 53),
+    0 0 10px rgb(25, 33, 33),
+    0 0 20px #20828d,
+    0 0 30px #00e5ff;
+}

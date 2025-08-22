@@ -28,17 +28,17 @@
 
 /* Heading style */
 .hero-heading {
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 800;
   margin-bottom: 1rem;
 }
 
 .neon-text {
-  color: cyan;
+  color: rgb(199, 171, 10);
   text-shadow:
-    0 0 5px cyan,
-    0 0 10px cyan,
-    0 0 20px #00e5ff,
+    0 0 5px rgb(19, 53, 53),
+    0 0 10px rgb(25, 33, 33),
+    0 0 20px #20828d,
     0 0 30px #00e5ff;
 }
 

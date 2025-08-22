@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Lottie from "lottie-react";
 import onlineLearning from "./assets/onlineLearning.json";
 import Educatin from "./assets/Educatin.json";
@@ -6,6 +6,19 @@ import { FaChevronDown } from "react-icons/fa";
 import "./HeroIntro.css";
 
 function HeroIntro({ onEnter }) {
+  // Disable scroll when intro is mounted
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "auto"; // reset on unmount
+    };
+  }, []);
+
+  const handleEnter = () => {
+    document.body.style.overflow = "auto"; // allow scroll
+    if (onEnter) onEnter();
+  };
+
   return (
     <div className="hero-intro-wrapper">
       {/* Left Animation */}
@@ -15,13 +28,13 @@ function HeroIntro({ onEnter }) {
 
       {/* Center Heading */}
       <div className="hero-heading-section">
-        <h1 className="hero-heading">
+        <h3 className="hero-heading">
           Welcome to <span className="neon-text">Gyaan Satra</span>
-        </h1>
+        </h3>
         <p className="hero-subtitle">"On The Path of Truth"</p>
 
         {/* Down Arrow */}
-        <button className="down-arrow" onClick={onEnter}>
+        <button className="down-arrow" onClick={handleEnter}>
           <FaChevronDown size={32} className="neon-arrow" />
         </button>
       </div>

@@ -43,7 +43,8 @@ function Homemain() {
         </motion.div>
 
         <motion.h1
-          className="main-heading fancy-fade-heading Headings"
+          className="neon-text"
+          //className="main-heading fancy-fade-heading Headings neon-text"
           initial="hidden"
           animate="visible"
           variants={fadeUp}
