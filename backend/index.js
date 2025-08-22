@@ -10,7 +10,7 @@ const app = express();
 
 // ✅ Middleware
 app.use(cors({
-  origin: "https://gyaansatra.netlify.app", // ✅ must match Netlify frontend
+  origin: ["http://localhost:5173", "https://gyaansatra.netlify.app"],
   credentials: true
 }));
 app.use(express.json());
