@@ -92,9 +92,9 @@ function Contact() {
                 <h4 className="contact-title">Follow Us</h4>
                 <p>Connect with us on social media</p>
                 <div className="social-icons">
-                  <a href="#" className="linkedin"><FaLinkedin /></a>
-                  <a href="#" className="instagram"><FaInstagram /></a>
-                  <a href="#" className="youtube"><FaYoutube /></a> 
+                  <a href="https://www.linkedin.com/in/evi-sphere?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app " className="linkedin"><FaLinkedin /></a>
+                  <a href="https://www.instagram.com/evispheretech?igsh=eDRzeXB0YmVnc2Nz&utm_source=qr " className="instagram"><FaInstagram /></a>
+                  <a href="https://www.youtube.com/@Episheretech " className="youtube"><FaYoutube /></a> 
                 </div>
               </Card.Body>
             </Card>

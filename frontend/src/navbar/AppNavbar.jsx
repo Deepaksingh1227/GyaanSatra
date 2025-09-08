@@ -4,7 +4,7 @@ import { Link as ScrollLink } from "react-scroll";
 import { useLocation, useNavigate, Link } from "react-router-dom";
 import './Nav.css';
 import { Navbar, Nav, Container, Button } from 'react-bootstrap';
-import logo from '../assets/gyaansatralogo.jpg';
+import logo from '../assets/logo.jpg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useAuth } from '../context/AuthContext';
 
@@ -75,7 +75,7 @@ function AppNavbar() {
               alt="Logo"
               style={{ objectFit: "contain", borderRadius: "8px" }}
             />
-            Gyaan Satra
+            EviSphere Tech
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav " />
           <Navbar.Collapse id="responsive-navbar-nav">

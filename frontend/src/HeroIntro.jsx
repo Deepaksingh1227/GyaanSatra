@@ -29,7 +29,7 @@ function HeroIntro({ onEnter }) {
       {/* Center Heading */}
       <div className="hero-heading-section">
         <h3 className="hero-heading">
-          Welcome to <span className="neon-text">Gyaan Satra</span>
+          Welcome to <span className="neon-text">EviSphere Tech</span>
         </h3>
         <p className="hero-subtitle">"On The Path of Truth"</p>
 

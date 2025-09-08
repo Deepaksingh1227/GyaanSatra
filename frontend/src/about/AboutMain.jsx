@@ -114,7 +114,7 @@ export default function AboutMain() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          About <span className="highlight">Gyaan Satra</span>
+          About <span className="highlight">EviSphere Tech</span>
         </motion.h2>
 
         <motion.p
@@ -123,7 +123,7 @@ export default function AboutMain() {
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.4, duration: 0.8 }}
         >
-          <span className="tagline">"On The Path Of Truth"</span> – Gyaan Satra
+          <span className="tagline">"On The Path Of Truth"</span> – EviSphere Tech
           represents the confluence of knowledge and action where learning meets implementation.
         </motion.p>
 

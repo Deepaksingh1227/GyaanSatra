@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Home.css';
-import logo from '../assets/gyaansatralogo.jpg';
+import logo from '../assets/logo.jpg';
 import { Container, Button, Card } from 'react-bootstrap';
 import { FaStar, FaArrowRight, FaCode, FaFlask, FaLaptopCode } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
@@ -50,7 +50,7 @@ function Homemain() {
           variants={fadeUp}
           transition={{ delay: 0.2, duration: 1 }}
         >
-          GYAAN SATRA
+          EviSphere Tech
         </motion.h1>
 
         <motion.p

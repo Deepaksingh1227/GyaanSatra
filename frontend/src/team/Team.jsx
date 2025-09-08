@@ -8,6 +8,7 @@ import manager from '../assets/manager.jpg';
 import advisor from '../assets/advisor.jpg'; 
 import graphicalteam from '../assets/graphicalteam.jpg';
 import gr from '../assets/gr.jpg';
+import Director from '../assets/director.jpg';
 
 function Team() {
   const [selectedMember, setSelectedMember] = useState(null);
@@ -30,14 +31,14 @@ function Team() {
       bgColor: "bg-orange",
     },
     {
-      name: "Sonali Gupta",
-      role: "Managerial Director",
-      quote: "Orchestrating operations with precision, turning plans into performance.",
-      icon: "bi bi-stars",
-      image: manager,
-      bgColor: "bg-blue",
+      name: "Shiksha",
+      role: "Director",
+      quote: "Building the vision that powers tomorrow’s success.",
+      icon: "bi bi-award",
+      image: Director,
+      bgColor: "bg-indigo",
     },
-    {
+     {
       name: "Utkarsh Singh",
       role: "The ADMINISTRATIVE ANCHOR",
       quote: "Where Structure Meets Strategy.",
@@ -45,6 +46,15 @@ function Team() {
       image: utkarsh,
       bgColor: "bg-pink",
     },
+    {
+      name: "Sonali Gupta",
+      role: "Managerial Director",
+      quote: "Orchestrating operations with precision, turning plans into performance.",
+      icon: "bi bi-stars",
+      image: manager,
+      bgColor: "bg-blue",
+    },
+   
     {
       name: "Aman Dehran",
       role: "ADVISOR",
