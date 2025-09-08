@@ -10,7 +10,7 @@ const app = express();
 
 // ✅ Middleware
 app.use(cors({
-  origin: "https://gyaansatra.netlify.app",
+  origin: "https://evispheretech.netlify.app",
   credentials: true
 }));
 app.use(express.json());
