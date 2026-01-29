@@ -3,9 +3,10 @@ const router = express.Router();
 const CompletedCourse = require("../models/CompletedCourse");
 const { auth } = require("../middleware/authMiddleware"); // ✅ Your existing middleware
 
-// Custom admin check (hardcoded email-based)
+// Custom admin check
 const isAdmin = (req, res, next) => {
-  if (req.user && req.user.email === "divyanthakur856@gmail.com") {
+  const adminEmails = ["admin@gyaansatra.com", "divyanthakur856@gmail.com"];
+  if (req.user && (req.user.role === "admin" || adminEmails.includes(req.user.email))) {
     next();
   } else {
     res.status(403).json({ message: "Access denied. Admin only." });

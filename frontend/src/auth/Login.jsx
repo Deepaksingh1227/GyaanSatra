@@ -14,7 +14,7 @@ const Login = () => {
       localStorage.setItem("user", JSON.stringify(res.data.user));
 
       // Navigate based on user role
-      if (res.data.user.role === "admin" || user.email === "divyanthakur856@gmail.com") {
+      if (res.data.user.role === "admin" || res.data.user.email === "divyanthakur856@gmail.com") {
         navigate("/admin-dashboard");
       } else {
         navigate("/notes");

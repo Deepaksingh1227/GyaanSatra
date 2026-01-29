@@ -21,7 +21,8 @@ exports.signup = async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     // Role check
-    const role = email === "admin@gyaansatra.com" ? "admin" : "user";
+    const adminEmails = ["admin@gyaansatra.com", "divyanthakur856@gmail.com"];
+    const role = adminEmails.includes(email) ? "admin" : "user";
 
     // Create user
     const user = await User.create({
@@ -33,7 +34,7 @@ exports.signup = async (req, res) => {
     });
 
     // Create token
-    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
+    const token = jwt.sign({ id: user._id, email: user.email, role: user.role }, process.env.JWT_SECRET, {
       expiresIn: "7d",
     });
 
@@ -66,7 +67,7 @@ exports.login = async (req, res) => {
     }
 
     // Create token
-    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
+    const token = jwt.sign({ id: user._id, email: user.email, role: user.role }, process.env.JWT_SECRET, {
       expiresIn: "7d",
     });
 
