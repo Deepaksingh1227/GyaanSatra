@@ -1,0 +1,176 @@
+/* About Section Container - Forensic + Classy Look */
+.about-section {
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); /* Deep teal-blue forensic gradient */
+  border-radius: 20px;
+  margin: 40px 20px;
+  padding: 60px 20px;
+  position: relative;
+  z-index: 1;
+  box-shadow: inset 0 0 80px rgba(0, 255, 170, 0.08);
+  font-family: 'Poppins', sans-serif; /* Sleek modern font */
+}
+
+/* Title Styling - Neon forensic highlight */
+.about-title {
+  font-size: 2.75rem;
+  font-weight: 800;
+  color: #00f5d4; /* Aqua neon */
+  letter-spacing: 1px;
+  text-shadow: 0 0 8px rgba(0, 245, 212, 0.6), 0 0 15px rgba(0, 245, 212, 0.4);
+}
+
+.about-title .highlight {
+  color: #ffba08; /* Premium gold accent */
+  text-shadow: 0 0 6px rgba(255, 186, 8, 0.6);
+}
+
+/* Subtitle Styling - Sleek grey-blue text */
+.about-subtitle {
+  font-size: 1.1rem;
+  max-width: 850px;
+  margin: 0 auto;
+  color: #cfd8dc;
+  font-weight: 300;
+}
+
+.about-subtitle .tagline {
+  font-weight: 700;
+  color: #ffba08;
+}
+
+/* Card Styling - Glassy cyber look */
+.about-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(0, 255, 170, 0.1);
+  border-radius: 20px;
+  padding: 30px;
+  transition: transform 0.5s ease, box-shadow 0.5s ease, background 0.5s ease;
+  box-shadow: 0 4px 20px rgba(0, 255, 170, 0.08);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  overflow: hidden;
+  position: relative;
+}
+
+.about-card:hover {
+  transform: scale(1.035) translateY(-10px);
+  background: rgba(0, 255, 170, 0.05);
+  box-shadow: 0 18px 36px rgba(0, 255, 170, 0.2);
+  z-index: 2;
+}
+
+.about-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  background: radial-gradient(circle at top left, rgba(0, 255, 170, 0.08), transparent);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: 1;
+}
+
+.about-card:hover::after {
+  opacity: 1;
+}
+
+/* Icon Styling - Cyber pulse */
+.icon-box {
+  background: linear-gradient(135deg, #00f5d4, #007f5f);
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  width: 60px;
+  height: 60px;
+  font-size: 1.6rem;
+  box-shadow: 0 8px 16px rgba(0, 255, 170, 0.3);
+  transition: transform 0.4s ease;
+}
+
+.about-card:hover .icon-box {
+  transform: scale(1.1) rotate(6deg);
+}
+/* Force white text for card descriptions */
+.about-card p {
+  color: #6c757d !important;
+}
+
+/* --- Slider wrapper: centers one card, hides overflow (no theme changes) --- */
+.cards-slider-viewport {
+  position: relative;
+  height: 280px;        /* enough height for your about-card */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;     /* hide sliding in/out */
+  margin-top: 18px;
+}
+
+/* The moving slide uses your existing .about-card styles */
+.slide {
+  max-width: 360px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+/* Prev/Next buttons - glassy, subtle, fits your neon/glass style */
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 255, 170, 0.2);
+  background: rgba(255, 255, 255, 0.06);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  color: #e0f7fa;
+  font-size: 22px;
+  line-height: 1;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+  z-index: 2;
+}
+
+.slider-btn:hover {
+  box-shadow: 0 0 18px rgba(0, 255, 170, 0.35);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.slider-btn.prev { left: 8px; }
+.slider-btn.next { right: 8px; }
+
+/* Dots */
+.slider-dots {
+  position: absolute;
+  bottom: 10px;
+  left: 0; right: 0;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.slider-dots .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  border: none;
+  background: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.slider-dots .dot.active {
+  background: #00f5d4; /* matches your aqua neon */
+  transform: scale(1.2);
+}

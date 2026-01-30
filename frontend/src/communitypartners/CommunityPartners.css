@@ -1,0 +1,56 @@
+.community-wrapper {
+  padding: 100px 20px 60px; /* Top padding increased for visibility */
+  background: linear-gradient(135deg, #f8f9fa, #fcefee); /* light gradient */
+  min-height: 100vh;
+}
+
+.community-heading {
+  font-size: 2.5rem;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 40px;
+  color: #1a237e; /* deep blue */
+}
+
+.partner-card {
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.partner-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
+}
+
+.partner-image {
+  height: 260px;
+  object-fit: contain; /* ✅ fixes image cut-off */
+  background-color: #fff;
+  padding: 10px;
+  width: 100%;
+}
+
+.partner-body {
+  padding: 20px;
+}
+
+.partner-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: #333;
+}
+
+.partner-location {
+  color: #777;
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+}
+
+.partner-desc {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 12px;
+}
