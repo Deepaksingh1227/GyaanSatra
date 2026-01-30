@@ -9,7 +9,7 @@ const razorpay = new Razorpay({
 exports.createOrder = async (req, res) => {
   try {
     const options = {
-      amount: 99900, // 999 INR in paise
+      amount: 2
       currency: "INR",
       receipt: "order_rcptid_" + Date.now(),
     };
