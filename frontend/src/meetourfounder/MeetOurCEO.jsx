@@ -42,7 +42,7 @@ function MeetOurCEO  ()  {
             transition={{ duration: 1 }}
           >
             <div className="ceo-card p-4 shadow-sm">
-              <h3 className="ceo-name">Mansha Negi</h3>
+              <h3 className="ceo-name">Miss Mansha Negi</h3>
               <p className="ceo-role">Founder & Chief Educator</p>
               <p className="ceo-description">
                 With a passion for transforming education through innovative teaching methods, Mansha Negi founded <strong>Gyaan Satra</strong> to bridge the gap between traditional learning and modern educational needs. Her expertise spans across Forensic Science, Data Structures & Algorithms, and Web Development.

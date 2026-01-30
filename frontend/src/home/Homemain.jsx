@@ -61,8 +61,8 @@ function Homemain() {
           transition={{ delay: 0.4, duration: 1 }}
         >
           Empowering minds through structured learning in
-          <strong> Forensic Science</strong>, <strong>DSA</strong>, and{' '}
-          <strong>Web Development</strong>.
+          <strong> Forensic Science</strong>, <strong>DSA</strong>,
+          <strong> Web Development</strong>, and{' '} <strong>Medical Ethics</strong>.
         </motion.p>
 
         <motion.div

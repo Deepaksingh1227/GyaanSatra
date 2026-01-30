@@ -3,19 +3,22 @@ import { motion } from 'framer-motion';
 import './Team.css';
 import CEOImage from '../assets/ceo.jpg';
 import cofounder from '../assets/cofounder.jpg';
-import utkarsh from '../assets/utkarsh.jpg';
-import manager from '../assets/manager.jpg';
-import advisor from '../assets/advisor.jpg'; 
-import graphicalteam from '../assets/graphicalteam.jpg';
-import gr from '../assets/gr.jpg';
+import Kavya from '../assets/Kavya.jpeg';
 import Director from '../assets/director.jpg';
+import TechLead from '../assets/Deepak.jpeg';
+import Bharat from '../assets/Bharat.jpeg';
+import Asmit from '../assets/asmit.jpeg';
+import pranav from '../assets/pranav.jpeg';
+import Kiran from '../assets/kiran.jpeg';
+import Jaspreet from '../assets/jaspreet.jpeg';
+
 
 function Team() {
   const [selectedMember, setSelectedMember] = useState(null);
 
   const teamData = [
     {
-      name: "Mansha Negi",
+      name: "Miss Mansha Negi",
       role: "FOUNDER & CEO",
       quote: "Leading the vision of transforming education through structured learning and innovation.",
       icon: "bi bi-award",
@@ -23,7 +26,7 @@ function Team() {
       bgColor: "bg-yellow",
     },
     {
-      name: "Navneet Singh",
+      name: "Mr Navneet Singh",
       role: "CO-FOUNDER & CTO",
       quote: "Building the technical foundation that powers the future of learning.",
       icon: "bi bi-stars",
@@ -31,7 +34,7 @@ function Team() {
       bgColor: "bg-orange",
     },
     {
-      name: "Shiksha",
+      name: "Miss Shiksha",
       role: "Director",
       quote: "Building the vision that powers tomorrow’s success.",
       icon: "bi bi-award",
@@ -39,44 +42,60 @@ function Team() {
       bgColor: "bg-indigo",
     },
      {
-      name: "Utkarsh Singh",
-      role: "The ADMINISTRATIVE ANCHOR",
-      quote: "Where Structure Meets Strategy.",
+      name: "Mr Kavya Rajput",
+      role: "HEAD OF EVENTS & EVENT MANAGER",
+      quote: "Leading the planning and execution of events that leave a lasting impression.",
       icon: "bi bi-quote",
-      image: utkarsh,
+      image: Kavya,
       bgColor: "bg-pink",
     },
     {
-      name: "Sonali Gupta",
-      role: "Managerial Director",
-      quote: "Orchestrating operations with precision, turning plans into performance.",
+      name: "Mr Deepak Singh",
+      role: "Tech Lead",
+      quote: "Driving technical vision while turning complex ideas into practical solutions.",
       icon: "bi bi-stars",
-      image: manager,
+      image: TechLead,
       bgColor: "bg-blue",
     },
    
     {
-      name: "Aman Dehran",
-      role: "ADVISOR",
-      quote: "Guiding the strategic vision with experience and wisdom.",
+      name: "Mr Asmit Kumar",
+      role: "Head of PR and Social Media",
+      quote: "Building strong brand presence through strategic communication and storytelling.",
       icon: "bi bi-lightbulb",
-      image: advisor,
+      image: Asmit,
       bgColor: "bg-green",
     },
     {
-      name: "Kavya Rajput, Deepak Singh, Bharat Sharma & Asmit Kumar",
-      role: "THE TECH CONQUERERS",
-      quote: "From Firewalls to Final Slides – They've Got It Locked.",
+      name: "Mr Bharat Sharma",
+      role: "Event Manager & Creative Team",
+      quote: "Combining structured planning with creative ideas to deliver impactful events.",
       icon: "bi bi-shield-lock",
-      image: gr,
+      image: Bharat,
       bgColor: "bg-purple",
     },
     {
-      name: "Aman Singh, Kartik, Disha",
-      role: "GRAPHIC & EDITING TEAM",
-      quote: "Crafting visuals and edits that bring stories to life with creativity and precision.",
+      name: "Miss Kiran Bala",
+      role: "Coordinator of Events & Social Media",
+      quote: "Coordinating seamless events while engaging audiences across social platforms.",
       icon: "bi bi-brush",
-      image: graphicalteam,
+      image: Kiran,
+      bgColor: "bg-indigo",
+    },
+    {
+      name: "Miss Jaspreet Kaur",
+      role: "Head of Creative Team & Tech Coordinator",
+      quote: "Supporting innovation by bridging technology and creative collaboration.",
+      icon: "bi bi-brush",
+      image: Jaspreet,
+      bgColor: "bg-indigo",
+    },
+    {
+      name: "Mr Pranav",
+      role: "Coordinator of Creative Team",
+      quote: "Organizing creative efforts to transform ideas into meaningful experiences.",
+      icon: "bi bi-brush",
+      image: pranav,
       bgColor: "bg-indigo",
     },
   ];
