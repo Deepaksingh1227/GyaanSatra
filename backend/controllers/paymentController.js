@@ -9,7 +9,7 @@ const razorpay = new Razorpay({
 exports.createOrder = async (req, res) => {
   try {
     const options = {
-      amount: 100, // Razorpay amounts are in paise (e.g., 100 = 1 INR)
+      amount: 99900, // 999 INR in paise
       currency: "INR",
       receipt: "order_rcptid_" + Date.now(),
     };
@@ -23,10 +23,15 @@ exports.createOrder = async (req, res) => {
 
 exports.verifyPayment = async (req, res) => {
   try {
-    const { order_id, razorpay_payment_id, category } = req.body;
+    const { razorpay_order_id, razorpay_payment_id, category } = req.body;
+
+    if (!razorpay_order_id || !razorpay_payment_id || !category) {
+      return res.status(400).json({ error: "Missing required payment fields" });
+    }
+
     await Payment.create({
       userId: req.user.id,
-      orderId: order_id,
+      orderId: razorpay_order_id,
       paymentId: razorpay_payment_id,
       session: category,
     });
@@ -39,7 +44,18 @@ exports.verifyPayment = async (req, res) => {
 
 exports.checkAccess = async (req, res) => {
   try {
-    const found = await Payment.findOne({ userId: req.user.id, session: req.params.session });
+    // 1. Check if user is admin – admins get access to everything
+    const adminEmails = ["admin@gyaansatra.com", "divyanthakur856@gmail.com"];
+    if (req.user.role === "admin" || adminEmails.includes(req.user.email)) {
+      return res.json({ allowed: true });
+    }
+
+    // 2. Check if payment exists in database
+    const found = await Payment.findOne({
+      userId: req.user.id,
+      session: req.params.session
+    });
+
     res.json({ allowed: !!found });
   } catch (error) {
     console.error("Access Check Error:", error);
