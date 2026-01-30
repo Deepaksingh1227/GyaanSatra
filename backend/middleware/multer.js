@@ -24,11 +24,12 @@ const fileFilter = (req, file, cb) => {
   }
 };
 
+console.log("Multer initialized with 100MB limit");
 const upload = multer({
   storage,
   fileFilter,
   limits: {
-    fileSize: 50 * 1024 * 1024 // Increased to 50MB
+    fileSize: 100 * 1024 * 1024 // Increased to 100MB
   }
 });
 
