@@ -1,0 +1,270 @@
+[33mcommit f86fdb749d4ce88bb5db7e833694f4d7e48deaec[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: dea063e c6dfd8c
+Author: jasperb2508 <travelpunjab04@gmail.com>
+Date:   Fri Jan 30 22:00:23 2026 +0530
+
+    Resolved merge conflicts
+
+[33mcommit dea063ec8838a9930380d881c6619cac29865b4f[m
+Author: jasperb2508 <travelpunjab04@gmail.com>
+Date:   Fri Jan 30 21:49:44 2026 +0530
+
+    Add Team Cards
+
+[33mcommit c6dfd8ccee38a2befc907c52324cfb3582cbff25[m
+Merge: 87e9eb3 9065813
+Author: deepaksingh1227 <divyanthakur856@gmail.com>
+Date:   Thu Jan 29 23:49:43 2026 +0530
+
+    Merge remote main into local main
+
+[33mcommit 87e9eb395a38ecdaca62f9e940f388112515975d[m
+Author: deepaksingh1227 <divyanthakur856@gmail.com>
+Date:   Thu Jan 29 23:46:36 2026 +0530
+
+    update
+
+[33mcommit 906581384cedec75f05971147bf12d5aa1bff89e[m
+Author: Deepak Singh Rawat <deepaksinghrawat141@gmail.com>
+Date:   Sat Nov 8 13:10:03 2025 +0530
+
+    Add GitHub Actions workflow for static site deployment
+    
+    This workflow automates the deployment of static content to GitHub Pages on pushes to the main branch or manually via the Actions tab.
+
+[33mcommit 733fa519cc584fd2b03141cf7e0d5afbf6937984[m
+Author: deepaksingh1227 <divyanthakur856@gmail.com>
+Date:   Mon Sep 8 20:18:35 2025 +0530
+
+    done
+
+[33mcommit ce5b69b032b87a63ac55a0b45b0f02c5aa8b9790[m
+Author: deepaksingh1227 <divyanthakur856@gmail.com>
+Date:   Mon Sep 8 20:06:50 2025 +0530
+
+    finalchanges
+
+[33mcommit faac79f190302329100cff91938a05907e6b1640[m
+Author: deepaksingh1227 <divyanthakur856@gmail.com>
+Date:   Mon Sep 8 19:56:51 2025 +0530
+
+    final changes
+
+[33mcommit 02183b97bbb51c824590d0cf021101f2cc703a00[m
+Author: deepaksingh1227 <divyanthakur856@gmail.com>
+Date:   Fri Aug 22 21:33:52 2025 +0530
+
+    updated
+
+[33mcommit cc536c27df24c34e6938ed58d085ad892cf11804[m
+Author: deepaksingh1227 <divyanthakur856@gmail.com>
+Date:   Fri Aug 22 21:28:15 2025 +0530
+
+    updated
+
+[33mcommit b3310c9bfb09f03253f8dc9b7e053ad10a9f1c8c[m
+Author: Kavya Rajput <154818700+kavyarajput722@users.noreply.github.com>
+Date:   Thu Aug 14 15:47:16 2025 +0530
+
+    Update HeroIntro.jsx
+
+[33mcommit dec9896df8c09d5b1240a37727e1c242aa9c0448[m
+Author: Kavya Rajput <154818700+kavyarajput722@users.noreply.github.com>
+Date:   Thu Aug 14 15:46:53 2025 +0530
+
+    Update HeroIntro.css
+
+[33mcommit 4e56591e59c0b199a579448dd0169a6d4b8c6c28[m
+Author: Kavya Rajput <154818700+kavyarajput722@users.noreply.github.com>
+Date:   Thu Aug 14 15:46:14 2025 +0530
+
+    Update Team.jsx
+
+[33mcommit 5e33a32425bb8ebdbcbcd8d49d0b0e070ab7d9a5[m
+Author: Kavya Rajput <154818700+kavyarajput722@users.noreply.github.com>
+Date:   Thu Aug 14 15:45:50 2025 +0530
+
+    Update Team.css
+
+[33mcommit 86d9079c65e0d9093f2b6c70aeabd5b941ba78ff[m
+Author: Kavya Rajput <154818700+kavyarajput722@users.noreply.github.com>
+Date:   Thu Aug 14 15:45:08 2025 +0530
+
+    Update CourseSection.jsx
+
+[33mcommit 3ed8141c61e3501c371c27e9066b273da7306229[m
+Author: Kavya Rajput <154818700+kavyarajput722@users.noreply.github.com>
+Date:   Thu Aug 14 15:44:45 2025 +0530
+
+    Update Course.css
+
+[33mcommit 3c52a2738816eda5e85e44465c34041eff0d7654[m
+Author: Kavya Rajput <154818700+kavyarajput722@users.noreply.github.com>
+Date:   Thu Aug 14 15:43:44 2025 +0530
+
+    Update Nav.css
+
+[33mcommit aae9630f6a552aadf240aabe0501c10c8e685b17[m
+Author: Kavya Rajput <154818700+kavyarajput722@users.noreply.github.com>
+Date:   Thu Aug 14 15:43:25 2025 +0530
+
+    Update AppNavbar.jsx
+
+[33mcommit bf67f70517f00127fe1651a22116689ce6c42040[m
+Author: Kavya Rajput <154818700+kavyarajput722@users.noreply.github.com>
+Date:   Thu Aug 14 15:42:41 2025 +0530
+
+    Update MeetOurCEO.jsx
+
+[33mcommit 889adeb3ac04a40bde52505fba6280e5a0edb4a7[m
+Author: Kavya Rajput <154818700+kavyarajput722@users.noreply.github.com>
+Date:   Thu Aug 14 15:42:19 2025 +0530
+
+    Update CEO.css
+
+[33mcommit 8c854a226bc306d10572a1f6f0a9a8c09f530d23[m
+Author: Kavya Rajput <154818700+kavyarajput722@users.noreply.github.com>
+Date:   Thu Aug 14 15:41:47 2025 +0530
+
+    Update Homemain.jsx
+
+[33mcommit 87a9e221cba7418c1f666aa2f585d723e582bff7[m
+Author: Kavya Rajput <154818700+kavyarajput722@users.noreply.github.com>
+Date:   Thu Aug 14 15:41:27 2025 +0530
+
+    Update Home.css
+
+[33mcommit 357efa9b2e4fd60745c324d8eae3a96fe3331950[m
+Author: Kavya Rajput <154818700+kavyarajput722@users.noreply.github.com>
+Date:   Thu Aug 14 15:40:52 2025 +0530
+
+    Update Contact.jsx
+
+[33mcommit 78415ead6949773ae614a53969cdd09b1e5866ec[m
+Author: Kavya Rajput <154818700+kavyarajput722@users.noreply.github.com>
+Date:   Thu Aug 14 15:40:20 2025 +0530
+
+    Update Contact.css
+
+[33mcommit 0ca5d53c2eee854c921707dc4a0b2946163bee50[m
+Author: Kavya Rajput <154818700+kavyarajput722@users.noreply.github.com>
+Date:   Thu Aug 14 15:39:26 2025 +0530
+
+    Update CommunityPartners.css
+
+[33mcommit 9f83a38ba46d8ba730e35086a7829426da83d7f4[m
+Author: Kavya Rajput <154818700+kavyarajput722@users.noreply.github.com>
+Date:   Thu Aug 14 15:37:57 2025 +0530
+
+    Update AboutMain.jsx
+
+[33mcommit 1cd96bb995413bee2a0c68dfb1207d8eb5a9ff2d[m
+Author: Kavya Rajput <154818700+kavyarajput722@users.noreply.github.com>
+Date:   Thu Aug 14 15:37:32 2025 +0530
+
+    Update AboutMain.css
+
+[33mcommit 761994fd5438808a0a71faf0b036a171374a3021[m
+Author: deepaksingh1227 <divyanthakur856@gmail.com>
+Date:   Sat Aug 9 22:24:54 2025 +0530
+
+    final
+
+[33mcommit 15c8e74ea17988a08e82f478d06b705623308d51[m
+Author: deepaksingh1227 <divyanthakur856@gmail.com>
+Date:   Sat Aug 9 22:20:39 2025 +0530
+
+    page and Style update
+
+[33mcommit 99c899839d437c576d04ce235cb4cfca07830b84[m
+Author: deepaksingh1227 <divyanthakur856@gmail.com>
+Date:   Sun Jul 20 14:14:17 2025 +0530
+
+    final changes
+
+[33mcommit adb7f3be78d2de73d77ae965f41e107af670e86c[m
+Author: deepaksingh1227 <divyanthakur856@gmail.com>
+Date:   Fri Jul 18 13:28:22 2025 +0530
+
+    upadte
+
+[33mcommit 863c3a2e4a576aa8288ddbc0710384d516bc28a5[m
+Author: deepaksingh1227 <divyanthakur856@gmail.com>
+Date:   Fri Jul 18 12:40:53 2025 +0530
+
+    updated file
+
+[33mcommit bff1d21127779bf854187083aa565c4ebc9494ac[m
+Author: deepaksingh1227 <divyanthakur856@gmail.com>
+Date:   Fri Jul 18 11:36:14 2025 +0530
+
+    update notes
+
+[33mcommit 39974bd99e45258d9e94431d38ba5fadca062849[m
+Author: deepaksingh1227 <divyanthakur856@gmail.com>
+Date:   Tue Jul 15 11:19:00 2025 +0530
+
+    updated
+
+[33mcommit f8dfb15b7fc9fef2b513bee4d468839b960d641e[m
+Author: deepaksingh1227 <divyanthakur856@gmail.com>
+Date:   Tue Jul 15 11:09:00 2025 +0530
+
+    updated
+
+[33mcommit 1f11c6571c2a2d6eca7d8f013a8b152cb12b0b44[m
+Author: deepaksingh1227 <divyanthakur856@gmail.com>
+Date:   Tue Jul 15 10:56:53 2025 +0530
+
+    updated
+
+[33mcommit 81807b78e0769a82590aeac26b164f598c8e495c[m
+Author: deepaksingh1227 <divyanthakur856@gmail.com>
+Date:   Tue Jul 15 10:48:25 2025 +0530
+
+    updated
+
+[33mcommit f081d67da694bb8eed08824b6d4d61a412afb937[m
+Author: deepaksingh1227 <divyanthakur856@gmail.com>
+Date:   Tue Jul 15 10:43:20 2025 +0530
+
+    updated
+
+[33mcommit 6d7617b5dbc10d2ecebc60d7b33ce9a6df11410d[m
+Author: deepaksingh1227 <divyanthakur856@gmail.com>
+Date:   Tue Jul 15 10:29:21 2025 +0530
+
+    update form
+
+[33mcommit 41d3f49e6a579c5c12a9b17ca32c67360fd36248[m
+Author: deepaksingh1227 <divyanthakur856@gmail.com>
+Date:   Mon Jul 14 22:15:19 2025 +0530
+
+    finally
+
+[33mcommit 89f3b3e5807698f99353c51d353be82100e3d8de[m
+Author: deepaksingh1227 <divyanthakur856@gmail.com>
+Date:   Mon Jul 14 22:08:01 2025 +0530
+
+    finally
+
+[33mcommit 3b6f801de579b7bd0cd3a1a5943ca0e9cb9cc868[m
+Author: deepaksingh1227 <divyanthakur856@gmail.com>
+Date:   Mon Jul 14 21:37:17 2025 +0530
+
+    Done
+
+[33mcommit 6fc3d01a6d97520c50fc64152cafb87037f78b63[m
+Author: deepaksingh1227 <divyanthakur856@gmail.com>
+Date:   Mon Jul 14 20:56:33 2025 +0530
+
+    last update
+
+[33mcommit 72b2522ef2fc7810e593a4d0e6adc6d75169db13[m
+Author: Kavya Rajput <154818700+kavyarajput722@users.noreply.github.com>
+Date:   Mon Jul 14 12:25:22 2025 +0530
+
+    Update ForensicCourses.jsx
+
+[33mcommit cc0f60184946ba906580729fbb345e722b58923b[m
+Author: Kavya Rajp
