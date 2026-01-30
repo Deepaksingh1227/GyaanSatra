@@ -28,28 +28,40 @@ const UploadForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!file) {
+      alert("Please select a file first.");
+      return;
+    }
+
     const data = new FormData();
     data.append("title", form.title);
     data.append("session", form.session);
     data.append("notefile", file);
 
-    await axios.post("/api/notes/upload", data, { headers });
-    alert("Note uploaded!");
-    fetchNotes(form.session); // Refresh notes
+    try {
+      await axios.post("/api/notes/upload", data, { headers });
+      alert("Note uploaded successfully!");
+      setForm({ ...form, title: "" }); // Clear title
+      setFile(null); // Clear file
+      fetchNotes(form.session); // Refresh notes
+    } catch (err) {
+      console.error("Upload failed:", err.response?.data || err.message);
+      alert(`Upload failed: ${err.response?.data?.error || err.message}`);
+    }
   };
 
- const handleDelete = async (id) => {
-  if (window.confirm("Are you sure you want to delete this note?")) {
-    try {
-      const res = await axios.delete(`/api/notes/${id}`, { headers });
-      alert("Note deleted successfully.");
-      fetchNotes(form.session);
-    } catch (err) {
-      console.error("Delete failed:", err.response?.data || err.message);
-      alert("Failed to delete note. Check console.");
+  const handleDelete = async (id) => {
+    if (window.confirm("Are you sure you want to delete this note?")) {
+      try {
+        const res = await axios.delete(`/api/notes/${id}`, { headers });
+        alert("Note deleted successfully.");
+        fetchNotes(form.session);
+      } catch (err) {
+        console.error("Delete failed:", err.response?.data || err.message);
+        alert("Failed to delete note. Check console.");
+      }
     }
-  }
-};
+  };
 
 
   return (
@@ -60,6 +72,7 @@ const UploadForm = () => {
           className="form-control mb-2"
           placeholder="Title"
           value={form.title}
+          required
           onChange={(e) => setForm({ ...form, title: e.target.value })}
         />
         <select
@@ -75,6 +88,8 @@ const UploadForm = () => {
         <input
           type="file"
           className="form-control mb-2"
+          accept=".pdf"
+          required
           onChange={(e) => setFile(e.target.files[0])}
         />
         <button className="btn btn-success">Upload</button>
@@ -86,7 +101,7 @@ const UploadForm = () => {
           <li key={note._id} className="list-group-item d-flex justify-content-between align-items-center">
             <div>
               <strong>{note.title}</strong> <br />
-              <a href={note.Url} target="_blank" rel="noreferrer">Preview PDF</a>
+              <a href={note.url} target="_blank" rel="noreferrer">Preview PDF</a>
             </div>
             <button onClick={() => handleDelete(note._id)} className="btn btn-danger btn-sm">
               Delete
