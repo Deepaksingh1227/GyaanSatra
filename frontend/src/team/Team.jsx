@@ -3,11 +3,7 @@ import { motion } from 'framer-motion';
 import './Team.css';
 import CEOImage from '../assets/ceo.jpg';
 import cofounder from '../assets/cofounder.jpg';
-import utkarsh from '../assets/utkarsh.jpg';
-import manager from '../assets/manager.jpg';
-import advisor from '../assets/advisor.jpg'; 
-import graphicalteam from '../assets/graphicalteam.jpg';
-
+import Kavya from '../assets/Kavya.jpeg';
 import Director from '../assets/director.jpg';
 import TechLead from '../assets/Deepak.jpeg';
 import Bharat from '../assets/Bharat.jpeg';
@@ -50,7 +46,7 @@ function Team() {
       role: "HEAD OF EVENTS & EVENT MANAGER",
       quote: "Leading the planning and execution of events that leave a lasting impression.",
       icon: "bi bi-quote",
-      image: utkarsh,
+      image: Kavya,
       bgColor: "bg-pink",
     },
     {
