@@ -1,6 +1,5 @@
 const Note = require("../models/Note");
 const cloudinary = require("../config/cloudinary");
-const fs = require("fs");
 
 exports.uploadNote = async (req, res) => {
   try {
@@ -8,36 +7,20 @@ exports.uploadNote = async (req, res) => {
       return res.status(400).json({ error: "No file uploaded. Please select a PDF file." });
     }
 
-    console.log("Uploading to Cloudinary:", req.file.path);
-
-    const result = await cloudinary.uploader.upload(req.file.path, {
-      folder: "gyaansatra_notes",
-      resource_type: "auto", // Changed to auto to handle PDFs better
-    });
-
-    console.log("Cloudinary Upload Success:", result.secure_url);
-
-    // Try to delete local file after upload
-    try {
-      if (fs.existsSync(req.file.path)) {
-        fs.unlinkSync(req.file.path);
-      }
-    } catch (fsErr) {
-      console.error("Local file deletion error:", fsErr);
-    }
+    console.log("File received from Cloudinary Storage:", req.file.path);
 
     const note = await Note.create({
       title: req.body.title,
-      url: result.secure_url,
+      url: req.file.path, // This is already the Cloudinary secure URL
       session: req.body.session,
-      cloudinaryId: result.public_id
+      cloudinaryId: req.file.filename // This is the public_id
     });
 
     res.status(201).json(note);
   } catch (error) {
     console.error("Upload Error:", error);
     res.status(500).json({
-      error: "Failed to upload note",
+      error: "Failed to save note info",
       details: error.message
     });
   }

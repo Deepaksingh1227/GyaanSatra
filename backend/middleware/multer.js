@@ -1,30 +1,34 @@
 const multer = require("multer");
+const { CloudinaryStorage } = require("multer-storage-cloudinary");
+const cloudinary = require("../config/cloudinary");
 
-// Storage config – just use temp 'uploads/' folder
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "uploads/");
+// Cloudinary Storage Config
+const storage = new CloudinaryStorage({
+  cloudinary: cloudinary,
+  params: {
+    folder: "gyaansatra_notes",
+    resource_type: "auto", // Automatically detect PDF/image/etc.
+    public_id: (req, file) => {
+      const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1E9);
+      return uniqueSuffix + "-" + file.originalname.split('.')[0];
+    },
   },
-  filename: (req, file, cb) => {
-    cb(null, Date.now() + "-" + file.originalname);
-  }
 });
 
 // File filter – only allow PDFs
 const fileFilter = (req, file, cb) => {
   if (file.mimetype === "application/pdf") {
-    cb(null, true); // ✅ Accept PDF
+    cb(null, true);
   } else {
-    cb(new Error("Only PDF files are allowed!"), false); // ❌ Reject others
+    cb(new Error("Only PDF files are allowed!"), false);
   }
 };
 
-// Final upload config
 const upload = multer({
   storage,
   fileFilter,
   limits: {
-    fileSize: 5 * 1024 * 1024 // Optional: 5MB max
+    fileSize: 10 * 1024 * 1024 // Increased to 10MB
   }
 });
 
