@@ -7,23 +7,12 @@ dotenv.config();
 const app = express();
 
 // ✅ Middleware
-<<<<<<< HEAD
 app.use(
   cors({
     origin: "https://evispheretech.netlify.app",
     credentials: true,
   }),
 );
-=======
-app.use(cors({
-  origin: [
-    "https://evispheretech.netlify.app",
-    "http://localhost:5173"
-  ],
-  credentials: true
-
-}));
->>>>>>> 27e401ddb06bce06f0c93d54e911817b20baa7df
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
