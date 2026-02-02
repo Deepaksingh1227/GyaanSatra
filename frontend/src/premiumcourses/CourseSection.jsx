@@ -3,7 +3,6 @@ import "./course.css";
 import { Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
 
 // ✅ IMPORT all special pages
 import ForensicCourses from "../ForensicCourses";
@@ -15,14 +14,25 @@ const courses = [
   {
     title: "Forensic Science",
     icon: "🔬",
-    description: "Master the art of scientific investigation and evidence analysis",
-    points: ["Crime Scene Investigation", "Evidence Analysis", "Forensic Techniques", "Criminal Profiling"],
+    description:
+      "Master the art of scientific investigation and evidence analysis",
+    points: [
+      "Crime Scene Investigation",
+      "Evidence Analysis",
+      "Forensic Techniques",
+      "Criminal Profiling",
+    ],
   },
   {
     title: "Data Structures & Algorithms",
     icon: "🧠",
     description: "Build strong programming foundations with DSA mastery",
-    points: ["Arrays & Linked Lists", "Trees & Graphs", "Sorting & Searching", "Dynamic Programming"],
+    points: [
+      "Arrays & Linked Lists",
+      "Trees & Graphs",
+      "Sorting & Searching",
+      "Dynamic Programming",
+    ],
   },
   {
     title: "Frontend Development",
@@ -34,7 +44,12 @@ const courses = [
     title: "Backend Development",
     icon: "🗄️",
     description: "Build robust server-side applications and APIs",
-    points: ["Node.js & Express", "Database Design", "API Development", "Cloud Deployment"],
+    points: [
+      "Node.js & Express",
+      "Database Design",
+      "API Development",
+      "Cloud Deployment",
+    ],
   },
 ];
 
@@ -95,10 +110,18 @@ function CourseSection() {
 
   return (
     <div className="container py-5 text-center">
-      {activeSpecial === "forensic" && <ForensicCourses onBack={() => setActiveSpecial("")} />}
-      {activeSpecial === "dsa" && <DSACourses onBack={() => setActiveSpecial("")} />}
-      {activeSpecial === "frontend" && <FrontendCourses onBack={() => setActiveSpecial("")} />}
-      {activeSpecial === "backend" && <BackendCourses onBack={() => setActiveSpecial("")} />}
+      {activeSpecial === "forensic" && (
+        <ForensicCourses onBack={() => setActiveSpecial("")} />
+      )}
+      {activeSpecial === "dsa" && (
+        <DSACourses onBack={() => setActiveSpecial("")} />
+      )}
+      {activeSpecial === "frontend" && (
+        <FrontendCourses onBack={() => setActiveSpecial("")} />
+      )}
+      {activeSpecial === "backend" && (
+        <BackendCourses onBack={() => setActiveSpecial("")} />
+      )}
 
       {!activeSpecial && (
         <>
@@ -110,7 +133,10 @@ function CourseSection() {
             <button className="tab-modern" onClick={() => navigate("/quiz")}>
               📝 Practice Quizzes
             </button>
-            <Button className="tab-modern" onClick={() => navigate("/previous-courses")}>
+            <Button
+              className="tab-modern"
+              onClick={() => navigate("/previous-courses")}
+            >
               📚 Previous Courses
             </Button>
           </div>
@@ -129,7 +155,8 @@ function CourseSection() {
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.2 }}
           >
-            Comprehensive learning paths designed to transform your career in technology and forensic science.
+            Comprehensive learning paths designed to transform your career in
+            technology and forensic science.
           </motion.p>
 
           {renderCourses()}

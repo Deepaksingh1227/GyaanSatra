@@ -1,8 +1,9 @@
-// src/payments/PayButton.jsx
 import React from "react";
 import axios from "../api/axios"; // ✅ custom axios instance
+import { useNavigate } from "react-router-dom"; // ✅ Added for redirection
 
 const PayButton = ({ category = "forensics" }) => {
+  const navigate = useNavigate(); // ✅ Hook for navigation
   const token = localStorage.getItem("token");
 
   const [isProcessing, setIsProcessing] = React.useState(false);
@@ -48,7 +49,8 @@ const PayButton = ({ category = "forensics" }) => {
               }
             );
             alert("Payment Successful!");
-            window.location.reload();
+            // Programmatically navigate to the specific notes page instead of just reloading
+            navigate(`/session/${category}`);
           } catch (verifyErr) {
             console.error("Verification Error:", verifyErr);
             alert("Payment verification failed. Please check your internet or contact support.");

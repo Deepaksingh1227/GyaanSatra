@@ -1,7 +1,12 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Container } from "react-bootstrap";
-import { FaMicroscope, FaCodeBranch, FaLaptopCode, FaAward } from "react-icons/fa";
-import { motion, AnimatePresence, useInView } from "framer-motion";
+import {
+  FaMicroscope,
+  FaCodeBranch,
+  FaLaptopCode,
+  FaAward,
+} from "react-icons/fa";
+import { AnimatePresence, useInView } from "framer-motion";
 import "./AboutMain.css";
 
 function Counter({ target, duration, suffix = "" }) {
@@ -123,8 +128,9 @@ export default function AboutMain() {
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.4, duration: 0.8 }}
         >
-          <span className="tagline">"On The Path Of Truth"</span> – EviSphere Tech
-          represents the confluence of knowledge and action where learning meets implementation.
+          <span className="tagline">"On The Path Of Truth"</span> – EviSphere
+          Tech represents the confluence of knowledge and action where learning
+          meets implementation.
         </motion.p>
 
         {/* 🌟 Horizontal one-by-one slider (keeps your card style) */}
@@ -190,9 +196,10 @@ export default function AboutMain() {
         >
           <h2>Our Mission</h2>
           <p>
-            To create a comprehensive learning ecosystem where knowledge transforms into expertise,
-            where students master forensic science, programming fundamentals, and web development through
-            structured curriculum and hands-on practice.
+            To create a comprehensive learning ecosystem where knowledge
+            transforms into expertise, where students master forensic science,
+            programming fundamentals, and web development through structured
+            curriculum and hands-on practice.
           </p>
 
           <div className="mission-stats">
@@ -214,4 +221,3 @@ export default function AboutMain() {
     </section>
   );
 }
-

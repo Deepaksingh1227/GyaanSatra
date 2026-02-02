@@ -1,17 +1,16 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import './Team.css';
-import CEOImage from '../assets/ceo.jpg';
-import cofounder from '../assets/cofounder.jpg';
-import Kavya from '../assets/Kavya.jpeg';
-import Director from '../assets/director.jpg';
-import TechLead from '../assets/Deepak.jpeg';
-import Bharat from '../assets/Bharat.jpeg';
-import Asmit from '../assets/asmit.jpeg';
-import pranav from '../assets/pranav.jpeg';
-import Kiran from '../assets/kiran.jpeg';
-import Jaspreet from '../assets/jaspreet.jpeg';
+import React, { useState } from "react";
 
+import "./Team.css";
+import CEOImage from "../assets/ceo.jpg";
+import cofounder from "../assets/cofounder.jpg";
+import Kavya from "../assets/Kavya.jpeg";
+import Director from "../assets/director.jpg";
+import TechLead from "../assets/Deepak.jpeg";
+import Bharat from "../assets/Bharat.jpeg";
+import Asmit from "../assets/asmit.jpeg";
+import pranav from "../assets/pranav.jpeg";
+import Kiran from "../assets/kiran.jpeg";
+import Jaspreet from "../assets/jaspreet.jpeg";
 
 function Team() {
   const [selectedMember, setSelectedMember] = useState(null);
@@ -20,7 +19,8 @@ function Team() {
     {
       name: "Miss Mansha Negi",
       role: "FOUNDER & CEO",
-      quote: "Leading the vision of transforming education through structured learning and innovation.",
+      quote:
+        "Leading the vision of transforming education through structured learning and innovation.",
       icon: "bi bi-award",
       image: CEOImage,
       bgColor: "bg-yellow",
@@ -28,7 +28,8 @@ function Team() {
     {
       name: "Mr Navneet Singh",
       role: "CO-FOUNDER & CTO",
-      quote: "Building the technical foundation that powers the future of learning.",
+      quote:
+        "Building the technical foundation that powers the future of learning.",
       icon: "bi bi-stars",
       image: cofounder,
       bgColor: "bg-orange",
@@ -41,10 +42,11 @@ function Team() {
       image: Director,
       bgColor: "bg-indigo",
     },
-     {
+    {
       name: "Mr Kavya Rajput",
       role: "HEAD OF EVENTS & EVENT MANAGER",
-      quote: "Leading the planning and execution of events that leave a lasting impression.",
+      quote:
+        "Leading the planning and execution of events that leave a lasting impression.",
       icon: "bi bi-quote",
       image: Kavya,
       bgColor: "bg-pink",
@@ -52,16 +54,18 @@ function Team() {
     {
       name: "Mr Deepak Singh",
       role: "Tech Lead",
-      quote: "Driving technical vision while turning complex ideas into practical solutions.",
+      quote:
+        "Driving technical vision while turning complex ideas into practical solutions.",
       icon: "bi bi-stars",
       image: TechLead,
       bgColor: "bg-blue",
     },
-   
+
     {
       name: "Mr Asmit Kumar",
       role: "Head of PR and Social Media",
-      quote: "Building strong brand presence through strategic communication and storytelling.",
+      quote:
+        "Building strong brand presence through strategic communication and storytelling.",
       icon: "bi bi-lightbulb",
       image: Asmit,
       bgColor: "bg-green",
@@ -69,7 +73,8 @@ function Team() {
     {
       name: "Mr Bharat Sharma",
       role: "Event Manager & Creative Team",
-      quote: "Combining structured planning with creative ideas to deliver impactful events.",
+      quote:
+        "Combining structured planning with creative ideas to deliver impactful events.",
       icon: "bi bi-shield-lock",
       image: Bharat,
       bgColor: "bg-purple",
@@ -77,7 +82,8 @@ function Team() {
     {
       name: "Miss Kiran Bala",
       role: "Coordinator of Events & Social Media",
-      quote: "Coordinating seamless events while engaging audiences across social platforms.",
+      quote:
+        "Coordinating seamless events while engaging audiences across social platforms.",
       icon: "bi bi-brush",
       image: Kiran,
       bgColor: "bg-indigo",
@@ -85,7 +91,8 @@ function Team() {
     {
       name: "Miss Jaspreet Kaur",
       role: "Head of Creative Team & Tech Coordinator",
-      quote: "Supporting innovation by bridging technology and creative collaboration.",
+      quote:
+        "Supporting innovation by bridging technology and creative collaboration.",
       icon: "bi bi-brush",
       image: Jaspreet,
       bgColor: "bg-indigo",
@@ -93,7 +100,8 @@ function Team() {
     {
       name: "Mr Pranav",
       role: "Coordinator of Creative Team",
-      quote: "Organizing creative efforts to transform ideas into meaningful experiences.",
+      quote:
+        "Organizing creative efforts to transform ideas into meaningful experiences.",
       icon: "bi bi-brush",
       image: pranav,
       bgColor: "bg-indigo",
@@ -137,7 +145,11 @@ function Team() {
               </div>
               <blockquote>“{member.quote}”</blockquote>
               <div className="vision-footer d-flex align-items-center">
-                <img src={member.image} alt={member.name} className="vision-img" />
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  className="vision-img"
+                />
                 <div className="vision-text ms-3">
                   <h5>{member.name}</h5>
                   <p>{member.role}</p>
@@ -159,11 +171,20 @@ function Team() {
             transition={{ duration: 0.3 }}
             onClick={(e) => e.stopPropagation()}
           >
-            <img src={selectedMember.image} alt={selectedMember.name} className="popup-img" />
+            <img
+              src={selectedMember.image}
+              alt={selectedMember.name}
+              className="popup-img"
+            />
             <h3>{selectedMember.name}</h3>
             <p className="popup-role">{selectedMember.role}</p>
             <p className="popup-quote">“{selectedMember.quote}”</p>
-            <button className="popup-close" onClick={() => setSelectedMember(null)}>×</button>
+            <button
+              className="popup-close"
+              onClick={() => setSelectedMember(null)}
+            >
+              ×
+            </button>
           </motion.div>
         </div>
       )}
