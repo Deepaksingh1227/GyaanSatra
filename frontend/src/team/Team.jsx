@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 
 import "./Team.css";
 import CEOImage from "../assets/ceo.jpg";

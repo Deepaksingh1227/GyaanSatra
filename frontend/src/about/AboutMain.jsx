@@ -6,7 +6,7 @@ import {
   FaLaptopCode,
   FaAward,
 } from "react-icons/fa";
-import { AnimatePresence, useInView } from "framer-motion";
+import { motion, AnimatePresence, useInView } from "framer-motion";
 import "./AboutMain.css";
 
 function Counter({ target, duration, suffix = "" }) {
