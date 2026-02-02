@@ -5,8 +5,11 @@ import axios from "../api/axios"; // ✅ custom axios instance
 const PayButton = ({ category = "forensics" }) => {
   const token = localStorage.getItem("token");
 
+  const [isProcessing, setIsProcessing] = React.useState(false);
+
   const handlePayment = async () => {
     try {
+      setIsProcessing(true);
       // 1. Get Razorpay Key ID from backend
       const { data: keyRes } = await axios.get("/api/payment/get-key");
       const razorpayKey = keyRes.key;
@@ -29,21 +32,34 @@ const PayButton = ({ category = "forensics" }) => {
         description: `Unlock ${category} Notes`,
         order_id: data.id,
         handler: async function (response) {
-          // 4. Verify payment
-          await axios.post(
-            "/api/payment/verify",
-            {
-              razorpay_order_id: response.razorpay_order_id,
-              razorpay_payment_id: response.razorpay_payment_id,
-              razorpay_signature: response.razorpay_signature,
-              category
-            },
-            {
-              headers: { Authorization: `Bearer ${token}` },
-            }
-          );
-          alert("Payment Successful!");
-          window.location.reload();
+          console.log("Razorpay Response received:", response);
+          try {
+            // 4. Verify payment
+            await axios.post(
+              "/api/payment/verify",
+              {
+                razorpay_order_id: response.razorpay_order_id,
+                razorpay_payment_id: response.razorpay_payment_id,
+                razorpay_signature: response.razorpay_signature,
+                category
+              },
+              {
+                headers: { Authorization: `Bearer ${token}` },
+              }
+            );
+            alert("Payment Successful!");
+            window.location.reload();
+          } catch (verifyErr) {
+            console.error("Verification Error:", verifyErr);
+            alert("Payment verification failed. Please check your internet or contact support.");
+          } finally {
+            setIsProcessing(false);
+          }
+        },
+        modal: {
+          ondismiss: function () {
+            setIsProcessing(false);
+          }
         },
         prefill: {
           name: "GyaanSatra User",
@@ -58,13 +74,18 @@ const PayButton = ({ category = "forensics" }) => {
       razor.open();
     } catch (err) {
       console.error("Payment Error:", err);
-      alert("Payment failed. Try again later.");
+      alert("Payment failed or cancelled. Try again later.");
+      setIsProcessing(false);
     }
   };
 
   return (
-    <button className="btn btn-warning" onClick={handlePayment}>
-      Pay ₹1 to Unlock
+    <button
+      className="btn btn-warning"
+      onClick={handlePayment}
+      disabled={isProcessing}
+    >
+      {isProcessing ? "Processing..." : "Pay ₹1 to Unlock"}
     </button>
   );
 };

@@ -7,9 +7,22 @@ dotenv.config();
 const app = express();
 
 // ✅ Middleware
+const allowedOrigins = [
+  "https://evispheretech.netlify.app",
+  "http://localhost:5173",
+  "http://localhost:3000",
+  "http://localhost:5000"
+];
+
 app.use(
   cors({
-    origin: "https://evispheretech.netlify.app",
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     credentials: true,
   }),
 );
