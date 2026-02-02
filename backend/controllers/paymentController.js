@@ -9,7 +9,7 @@ const razorpay = new Razorpay({
 exports.createOrder = async (req, res) => {
   try {
     const options = {
-      amount: 99900, // 999 INR in paise
+      amount: 100, // 1 INR in paise (Setting to ₹1 for testing as requested)
       currency: "INR",
       receipt: "order_rcptid_" + Date.now(),
     };
@@ -25,16 +25,22 @@ exports.verifyPayment = async (req, res) => {
   try {
     const { razorpay_order_id, razorpay_payment_id, category } = req.body;
 
+    console.log("Verifying payment:", { razorpay_order_id, razorpay_payment_id, category });
+    console.log("User info from token:", req.user);
+
     if (!razorpay_order_id || !razorpay_payment_id || !category) {
+      console.error("Missing payment fields in request body");
       return res.status(400).json({ error: "Missing required payment fields" });
     }
 
-    await Payment.create({
+    const newPayment = await Payment.create({
       userId: req.user.id,
       orderId: razorpay_order_id,
       paymentId: razorpay_payment_id,
       session: category,
     });
+
+    console.log("Payment record created:", newPayment);
     res.sendStatus(200);
   } catch (error) {
     console.error("Payment Verification Error:", error);
@@ -44,9 +50,14 @@ exports.verifyPayment = async (req, res) => {
 
 exports.checkAccess = async (req, res) => {
   try {
+    console.log("Checking access for session:", req.params.session);
+    console.log("User info from token:", req.user);
+
     // 1. Check if user is admin – admins get access to everything
     const adminEmails = ["admin@gyaansatra.com", "divyanthakur856@gmail.com"];
-    if (req.user.role === "admin" || adminEmails.includes(req.user.email)) {
+
+    if (req.user && (req.user.role === "admin" || adminEmails.includes(req.user.email))) {
+      console.log("Access granted: Admin user detected");
       return res.json({ allowed: true });
     }
 
@@ -56,6 +67,7 @@ exports.checkAccess = async (req, res) => {
       session: req.params.session
     });
 
+    console.log("Payment search result:", found);
     res.json({ allowed: !!found });
   } catch (error) {
     console.error("Access Check Error:", error);

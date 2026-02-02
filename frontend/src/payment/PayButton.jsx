@@ -2,7 +2,7 @@
 import React from "react";
 import axios from "../api/axios"; // ✅ custom axios instance
 
-const PayButton = ({ category="forensics" }) => {
+const PayButton = ({ category = "forensics" }) => {
   const token = localStorage.getItem("token");
 
   const handlePayment = async () => {
@@ -32,7 +32,12 @@ const PayButton = ({ category="forensics" }) => {
           // 4. Verify payment
           await axios.post(
             "/api/payment/verify",
-            { ...response, category },
+            {
+              razorpay_order_id: response.razorpay_order_id,
+              razorpay_payment_id: response.razorpay_payment_id,
+              razorpay_signature: response.razorpay_signature,
+              category
+            },
             {
               headers: { Authorization: `Bearer ${token}` },
             }
@@ -59,7 +64,7 @@ const PayButton = ({ category="forensics" }) => {
 
   return (
     <button className="btn btn-warning" onClick={handlePayment}>
-      Pay ₹999 to Unlock
+      Pay ₹1 to Unlock
     </button>
   );
 };
